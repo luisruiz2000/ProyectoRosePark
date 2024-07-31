@@ -1,0 +1,48 @@
+@model RosePark.Models.Servicio
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Servicio</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NombreServicio" class="control-label"></label>
+                <input asp-for="NombreServicio" class="form-control" />
+                <span asp-validation-for="NombreServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescripcionServicio" class="control-label"></label>
+                <input asp-for="DescripcionServicio" class="form-control" />
+                <span asp-validation-for="DescripcionServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecioServicio" class="control-label"></label>
+                <input asp-for="PrecioServicio" class="form-control" />
+                <span asp-validation-for="PrecioServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoServicio" class="control-label"></label>
+                <input asp-for="EstadoServicio" class="form-control" />
+                <span asp-validation-for="EstadoServicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
