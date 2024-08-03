@@ -19,11 +19,20 @@ namespace RosePark.Controllers
         }
 
         // GET: Usuarios
+        
         public async Task<IActionResult> Index()
         {
             var roseParkDbContext = _context.Usuarios.Include(u => u.IdPersonasNavigation).Include(u => u.IdRolNavigation);
             return View(await roseParkDbContext.ToListAsync());
         }
+
+        /*
+        {
+            var roseParkDbContext = _context.Usuarios.Include(u => u.IdPersonasNavigation).Include(u => u.IdRolNavigation);
+            return View(await roseParkDbContext.ToListAsync());
+        }*/
+
+
 
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)

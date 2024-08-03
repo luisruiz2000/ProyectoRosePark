@@ -17,279 +17,279 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RosePark
 build_property.RootNamespace = RosePark
-build_property.ProjectDir = /home/luis/Documentos/SENA/Tecnica/RosePark/
+build_property.ProjectDir = C:\Users\Juanes\Desktop\GitHub\ProyectoRosePark\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/luis/Documentos/SENA/Tecnica/RosePark
+build_property.MSBuildProjectDirectory = C:\Users\Juanes\Desktop\GitHub\ProyectoRosePark
 build_property._RazorSourceGeneratorDebug = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Habitaciones/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGFiaXRhY2lvbmVzL0NyZWF0ZS5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Habitaciones/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGFiaXRhY2lvbmVzL0RlbGV0ZS5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Habitaciones/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGFiaXRhY2lvbmVzL0RldGFpbHMuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Habitaciones/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGFiaXRhY2lvbmVzL0VkaXQuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Habitaciones/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSGFiaXRhY2lvbmVzL0luZGV4LmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Paquetes/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXMvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Paquetes/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXMvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Paquetes/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXMvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Paquetes/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXMvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Paquetes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXMvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/PaquetesServicios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXNTZXJ2aWNpb3MvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/PaquetesServicios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXNTZXJ2aWNpb3MvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/PaquetesServicios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXNTZXJ2aWNpb3MvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/PaquetesServicios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXNTZXJ2aWNpb3MvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/PaquetesServicios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFxdWV0ZXNTZXJ2aWNpb3MvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Permisos/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVybWlzb3MvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Permisos/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVybWlzb3MvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Permisos/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVybWlzb3MvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Permisos/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVybWlzb3MvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Permisos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVybWlzb3MvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Personas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uYXMvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Personas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uYXMvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Personas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uYXMvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Personas/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uYXMvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Personas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGVyc29uYXMvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Reservas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXMvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Reservas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXMvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Reservas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXMvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Reservas/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXMvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Reservas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXMvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/ReservasServicios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXNTZXJ2aWNpb3MvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/ReservasServicios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXNTZXJ2aWNpb3MvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/ReservasServicios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXNTZXJ2aWNpb3MvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/ReservasServicios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXNTZXJ2aWNpb3MvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/ReservasServicios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVzZXJ2YXNTZXJ2aWNpb3MvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Roles/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXMvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Roles/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXMvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Roles/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXMvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Roles/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXMvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Roles/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXMvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/RolesPermisos/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXNQZXJtaXNvcy9DcmVhdGUuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/RolesPermisos/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXNQZXJtaXNvcy9EZWxldGUuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/RolesPermisos/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXNQZXJtaXNvcy9EZXRhaWxzLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/RolesPermisos/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXNQZXJtaXNvcy9FZGl0LmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/RolesPermisos/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUm9sZXNQZXJtaXNvcy9JbmRleC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Servicios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljaW9zL0NyZWF0ZS5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Servicios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljaW9zL0RlbGV0ZS5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Servicios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljaW9zL0RldGFpbHMuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Servicios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljaW9zL0VkaXQuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Servicios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2VydmljaW9zL0luZGV4LmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/TiposHabitaciones/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NIYWJpdGFjaW9uZXMvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/TiposHabitaciones/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NIYWJpdGFjaW9uZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/TiposHabitaciones/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NIYWJpdGFjaW9uZXMvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/TiposHabitaciones/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NIYWJpdGFjaW9uZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/TiposHabitaciones/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NIYWJpdGFjaW9uZXMvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/TiposHabitaciones/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NIYWJpdGFjaW9uZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/TiposHabitaciones/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NIYWJpdGFjaW9uZXMvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/TiposHabitaciones/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NIYWJpdGFjaW9uZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/TiposHabitaciones/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGlwb3NIYWJpdGFjaW9uZXMvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/TiposHabitaciones/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb3NIYWJpdGFjaW9uZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Usuarios/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvQ3JlYXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Usuarios/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvRGVsZXRlLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Usuarios/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvRGV0YWlscy5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Usuarios/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvRWRpdC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Usuarios/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVXN1YXJpb3MvSW5kZXguY3NodG1s
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/luis/Documentos/SENA/Tecnica/RosePark/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-5ipene353v
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-r1zgzo7u59

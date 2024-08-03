@@ -5,10 +5,13 @@
 }
 
 <h1>Index</h1>
+<a asp-action="Create" class="btn btn-success mb-3">Crear Usuario</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<select class="form-select" aria-label="Default select example">
+  <option selected>Clientes</option>
+  <option value="2">Administrativos</option>
+</select>
+
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +46,10 @@
                 @Html.DisplayFor(modelItem => item.IdRolNavigation.IdRol)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdUsuario">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdUsuario">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdUsuario">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="btn btn-warning">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.IdUsuario" class="btn btn-primary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn btn-danger">Delete</a>
+
             </td>
         </tr>
 }

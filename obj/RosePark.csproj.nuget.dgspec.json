@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/home/luis/Documentos/SENA/Tecnica/RosePark/RosePark.csproj": {}
+    "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\RosePark.csproj": {}
   },
   "projects": {
-    "/home/luis/Documentos/SENA/Tecnica/RosePark/RosePark.csproj": {
+    "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\RosePark.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luis/Documentos/SENA/Tecnica/RosePark/RosePark.csproj",
+        "projectUniqueName": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\RosePark.csproj",
         "projectName": "RosePark",
-        "projectPath": "/home/luis/Documentos/SENA/Tecnica/RosePark/RosePark.csproj",
-        "packagesPath": "/home/luis/.nuget/packages/",
-        "outputPath": "/home/luis/Documentos/SENA/Tecnica/RosePark/obj/",
+        "projectPath": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\RosePark.csproj",
+        "packagesPath": "C:\\Users\\Juanes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/luis/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Juanes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
