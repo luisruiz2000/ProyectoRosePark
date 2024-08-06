@@ -2,15 +2,21 @@
 
 @{
     ViewData["Title"] = "Index";
+    var selectedRolOption = ViewData["SelectedRolOption"]?.ToString();
 }
 
 <h1>Index</h1>
 <a asp-action="Create" class="btn btn-success mb-3">Crear Usuario</a>
 
-<select class="form-select" aria-label="Default select example">
-  <option selected>Clientes</option>
-  <option value="2">Administrativos</option>
-</select>
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <label for="rolOption">Filtrar por Rol:</label>
+        <select class="form-select" id="rolOption" name="rolOption" onchange="this.form.submit()">
+            @Html.Raw($"<option value=\"1\" {(selectedRolOption == "1" ? "selected" : "")}>Clientes</option>")
+            @Html.Raw($"<option value=\"2\" {(selectedRolOption == "2" ? "selected" : "")}>Administrativos</option>")
+        </select>
+    </div>
+</form>
 
 <table class="table">
     <thead>
@@ -22,16 +28,17 @@
                 @Html.DisplayNameFor(model => model.ClaveUsuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPersonasNavigation)
+                @Html.DisplayNameFor(model => model.IdPersonasNavigation.IdPersonas)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdRolNavigation)
+                @Html.DisplayNameFor(model => model.IdRolNavigation.IdRol)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CorreoUsuario)
@@ -49,9 +56,8 @@
                 <a asp-action="Edit" asp-route-id="@item.IdUsuario" class="btn btn-warning">Edit</a>
                 <a asp-action="Details" asp-route-id="@item.IdUsuario" class="btn btn-primary">Details</a>
                 <a asp-action="Delete" asp-route-id="@item.IdUsuario" class="btn btn-danger">Delete</a>
-
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>

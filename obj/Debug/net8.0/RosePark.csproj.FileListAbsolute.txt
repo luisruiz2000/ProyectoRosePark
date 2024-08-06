@@ -228,7 +228,7 @@
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/it/Microsoft.CodeAnalysis.Features.resources.dll
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/ja/Microsoft.CodeAnalysis.Features.resources.dll
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/ko/Microsoft.CodeAnalysis.Features.resources.dll
-/home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Features.resources.dll
+/home//Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/pl/Microsoft.CodeAnalysis.Features.resources.dll
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/pt-BR/Microsoft.CodeAnalysis.Features.resources.dll
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/ru/Microsoft.CodeAnalysis.Features.resources.dll
 /home/luis/Documentos/SENA/Tecnica/RosePark/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Features.resources.dll

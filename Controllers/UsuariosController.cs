@@ -20,17 +20,35 @@ namespace RosePark.Controllers
 
         // GET: Usuarios
         
+        /*
         public async Task<IActionResult> Index()
         {
             var roseParkDbContext = _context.Usuarios.Include(u => u.IdPersonasNavigation).Include(u => u.IdRolNavigation);
             return View(await roseParkDbContext.ToListAsync());
+        }*/
+
+        public async Task<IActionResult> Index(int? rolOption)
+        {
+            var usuarios = _context.Usuarios.Include(u => u.IdPersonasNavigation).Include(u => u.IdRolNavigation).AsQueryable();
+
+            if (rolOption.HasValue)
+            {
+                if (rolOption.Value == 1) // Clientes
+                {
+                    usuarios = usuarios.Where(u => u.IdRol == 1);
+                }
+                else if (rolOption.Value == 2) // Otros roles
+                {
+                    usuarios = usuarios.Where(u => u.IdRol != 1);
+                }
+            }
+
+            ViewData["SelectedRolOption"] = rolOption;
+
+            return View(await usuarios.ToListAsync());
         }
 
-        /*
-        {
-            var roseParkDbContext = _context.Usuarios.Include(u => u.IdPersonasNavigation).Include(u => u.IdRolNavigation);
-            return View(await roseParkDbContext.ToListAsync());
-        }*/
+
 
 
 
