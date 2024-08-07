@@ -19,7 +19,7 @@ public partial class Persona
 
     public string Celular { get; set; } = null!;
 
-    public DateOnly FrechaNacimiento { get; set; }
+    public DateOnly FechaNacimiento { get; set; }
 
     public int? IdRol { get; set; }
 

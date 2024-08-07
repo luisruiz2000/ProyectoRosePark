@@ -56,7 +56,7 @@ namespace RosePark.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPersonas,Nombres,Apellidos,TipoDocumento,NroDocumento,Edad,Celular,FrechaNacimiento,IdRol")] Persona persona)
+        public async Task<IActionResult> Create([Bind("IdPersonas,Nombres,Apellidos,TipoDocumento,NroDocumento,Edad,Celular,Nacimiento,IdRol")] Persona persona)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace RosePark.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPersonas,Nombres,Apellidos,TipoDocumento,NroDocumento,Edad,Celular,FrechaNacimiento,IdRol")] Persona persona)
+        public async Task<IActionResult> Edit(int id, [Bind("IdPersonas,Nombres,Apellidos,TipoDocumento,NroDocumento,Edad,Celular,FechaNacimiento,IdRol")] Persona persona)
         {
             if (id != persona.IdPersonas)
             {
