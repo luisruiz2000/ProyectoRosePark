@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\RosePark.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\nav.css",
+      "PackagePath": "staticwebassets\\css\\nav.css"
+    },
+    {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\RoseParkBlanco.png",
+      "PackagePath": "staticwebassets\\img\\RoseParkBlanco.png"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\RoseParkNegro.png",
+      "PackagePath": "staticwebassets\\img\\RoseParkNegro.png"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\site.js",
