@@ -17,12 +17,132 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\1.jpg",
+      "PackagePath": "staticwebassets\\img\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\2.jpg",
+      "PackagePath": "staticwebassets\\img\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\3.jpg",
+      "PackagePath": "staticwebassets\\img\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\4.webp",
+      "PackagePath": "staticwebassets\\img\\4.webp"
+    },
+    {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\RoseParkBlanco.png",
       "PackagePath": "staticwebassets\\img\\RoseParkBlanco.png"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\RoseParkNegro.png",
       "PackagePath": "staticwebassets\\img\\RoseParkNegro.png"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\about_feature_image.png",
+      "PackagePath": "staticwebassets\\img\\about_feature_image.png"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\food-1.jpg",
+      "PackagePath": "staticwebassets\\img\\food-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\hero_1.jpg",
+      "PackagePath": "staticwebassets\\img\\hero_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\hero_2.jpg",
+      "PackagePath": "staticwebassets\\img\\hero_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\hero_3.jpg",
+      "PackagePath": "staticwebassets\\img\\hero_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\hero_4.jpg",
+      "PackagePath": "staticwebassets\\img\\hero_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\image_5.jpg",
+      "PackagePath": "staticwebassets\\img\\image_5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\image_6.jpg",
+      "PackagePath": "staticwebassets\\img\\image_6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\image_7.jpg",
+      "PackagePath": "staticwebassets\\img\\image_7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_1.jpg",
+      "PackagePath": "staticwebassets\\img\\img_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_2.jpg",
+      "PackagePath": "staticwebassets\\img\\img_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_3.jpg",
+      "PackagePath": "staticwebassets\\img\\img_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_4.jpg",
+      "PackagePath": "staticwebassets\\img\\img_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_5.jpg",
+      "PackagePath": "staticwebassets\\img\\img_5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\person_1.jpg",
+      "PackagePath": "staticwebassets\\img\\person_1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\person_2.jpg",
+      "PackagePath": "staticwebassets\\img\\person_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\person_3.jpg",
+      "PackagePath": "staticwebassets\\img\\person_3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\person_4.jpg",
+      "PackagePath": "staticwebassets\\img\\person_4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\round.png",
+      "PackagePath": "staticwebassets\\img\\round.png"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-1.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-2.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-3.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-4.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-5.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-6.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-7.jpg",
+      "PackagePath": "staticwebassets\\img\\slider-7.jpg"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\site.js",

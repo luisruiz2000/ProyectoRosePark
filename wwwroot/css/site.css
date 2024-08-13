@@ -36,3 +36,31 @@ body {
   height: 80vh;
   object-fit: cover;
 }
+
+.buscador{
+  background-color: white;
+  width: 70%;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 2rem 0;
+  flex-direction: row;
+  margin-top: -3%;
+}
+
+.formBuscador {
+  width: 100%;
+}
+
+.btnBuscador {
+  width: 20%;
+  border-radius: 25px;
+}
+
+.paquetes{
+  width: 70%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10 0;
+}

@@ -1,2 +1,2 @@
 appsettings.json
-/Models/RoseParkDbContext.cs
+Models/RoseParkDbContext.cs
