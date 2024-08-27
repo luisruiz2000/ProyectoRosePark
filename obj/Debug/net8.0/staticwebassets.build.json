@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lpUwS8hhdZ7nufNtga1CzwdZHi7LgNOMhGXlFfiUhJ4=",
+  "Hash": "u2ks/LF8FVNDZmgvDk/hB8nxUq78e6Wyy9r9+aiSXYw=",
   "Source": "RosePark",
   "BasePath": "_content/RosePark",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\nav.css"
+    },
+    {
+      "Identity": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\search.css",
+      "SourceId": "RosePark",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\",
+      "BasePath": "_content/RosePark",
+      "RelativePath": "css/search.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\search.css"
     },
     {
       "Identity": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\site.css",
@@ -718,6 +737,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\slider-7.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\Home.js",
+      "SourceId": "RosePark",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\",
+      "BasePath": "_content/RosePark",
+      "RelativePath": "js/Home.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Home.js"
     },
     {
       "Identity": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\site.js",

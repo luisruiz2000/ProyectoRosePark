@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #CCC;
+  background-color: #ececec;
 }
 
 .header {
@@ -60,7 +60,31 @@ body {
 
 .paquetes{
   width: 70%;
-  justify-content: space-around;
+  justify-content: space-around; 
   align-items: center;
   margin: 10 0;
+}
+
+.paquetes{
+  width: 70%;
+  justify-content: space-between;
+  flex-direction: row; 
+  align-items: center;
+  margin: 10 0;
+}
+
+.descripcion {
+  width: 70%;
+  justify-content: space-between;
+  flex-direction: row; 
+  align-items: center;
+  margin: 07% auto;
+
+}
+
+.imgDescripcion {
+  height: 55vh;
+  object-fit: cover;
+  margin-left: 5%;
+
 }

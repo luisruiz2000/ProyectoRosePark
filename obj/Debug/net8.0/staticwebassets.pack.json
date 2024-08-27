@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\nav.css"
     },
     {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\search.css",
+      "PackagePath": "staticwebassets\\css\\search.css"
+    },
+    {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -143,6 +147,10 @@
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\slider-7.jpg",
       "PackagePath": "staticwebassets\\img\\slider-7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\Home.js",
+      "PackagePath": "staticwebassets\\js\\Home.js"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\js\\site.js",
