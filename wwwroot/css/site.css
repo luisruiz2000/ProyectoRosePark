@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ececec;
+  background-color: #ccc;
 }
 
 .header {
@@ -8,6 +8,8 @@ body {
 }
 
 .navbar {
+  backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.121); 
   position: fixed;
   top: 0;
   width: 100% ;
@@ -18,7 +20,7 @@ body {
 }
 
 .nav-link {
-  color: white !important;
+  color: black !important;
 }
 
 .containerBtns {
@@ -85,6 +87,16 @@ body {
 .imgDescripcion {
   height: 55vh;
   object-fit: cover;
-  margin-left: 5%;
+  border-radius: 25px;
+}
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.626); /* Elige el color que prefieras */
+  border-radius: 50%; /* Opcional: hace que el fondo sea circular */
+}
+
+
+.card {
+  border-radius: 10px;
 }

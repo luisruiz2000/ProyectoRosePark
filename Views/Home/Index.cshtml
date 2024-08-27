@@ -18,7 +18,7 @@
 
 <body>
   <header class="header">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleAutoplaying" data-bs-interval="4000" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="img/1.jpg" class="d-block w-100 imgCarousel" alt="...">
@@ -48,16 +48,17 @@
   <section class="buscador container-fluid d-flex">
     <form asp-action="Search" asp-controller="Home" method="post"
       class="d-flex justify-content-evenly align-items-end formBuscador">
+      
       <div class="row">
         <label for="checkinDate" class="font-weight-bold text-black">Check In</label>
         <input type="date" name="checkinDate" id="checkinDate" class="form-control" required>
-
-
       </div>
+
       <div class="row">
         <label for="checkoutDate" class="font-weight-bold text-black">Check Out</label>
         <input type="date" name="checkoutDate" id="checkoutDate" class="form-control" required>
       </div>
+
       <div class="row">
         <label for="numeroPersonas" class="font-weight-bold text-black">Número de Personas</label>
         <select name="numeroPersonas" id="numeroPersonas" class="form-control">
@@ -78,7 +79,7 @@
     <div class="d-flex justify-content-center align-items-center">
       <div class="">
         <h2 class="text-justify">Descubra Rose Park</h2><br>
-        <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsa enim dolore,
+        <p class="text-justify pe-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsa enim dolore,
           aperiam necessitatibus
           unde iste deleniti nisi voluptatibus quasi, obcaecati odit tempora blanditiis accusamus veniam harum fugit
           fuga error.
@@ -104,7 +105,7 @@
             {
               var habitacion = habitaciones.ElementAt(j);
               <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
+                <div class="card shadow-lg" style="width: 18rem;">  
                   <img src="img/hero_1.jpg" class="card-img-top" alt="Imagen del Paquete">
                   <div class="card-body">
                     <h5 class="card-title">@habitacion.NorHabitacion</h5>
