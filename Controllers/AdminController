@@ -1,0 +1,14 @@
+using Microsoft.AspNetCore.Mvc;
+
+namespace RosePark.Controllers
+{
+    public class AdminController : Controller
+    {
+        public IActionResult Dashboard()
+        {
+            return View();
+        }
+
+        // Agregar otros métodos para gestionar datos de la base de datos
+    }
+}

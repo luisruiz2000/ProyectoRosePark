@@ -26,6 +26,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Juanes\Desktop\GitHub\ProyectoRosePark
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using RosePark.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,14 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Hace que la cookie sea esencial
 });
 
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Home/Login";
+        options.LogoutPath = "/Home/Logout";
+    });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,6 +48,7 @@ app.UseRouting();
 // Habilitar el uso de sesiones
 app.UseSession();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -44,7 +56,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-/* 
-dotnet aspnet-codegenerator controller -name HabitacionController -m Habitacione -dc NombreDelDbContext --relativeFolderPath Controladores --useDefaultLayout --referenceScriptLibraries
- */
