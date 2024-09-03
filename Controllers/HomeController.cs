@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Newtonsoft.Json;
 
 namespace RosePark.Controllers
 {
@@ -113,65 +114,86 @@ namespace RosePark.Controllers
         }
 
         [HttpPost]
-        public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional, string metodoPago)
+public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional, string metodoPago)
+{
+    // Verificar si el usuario está autenticado
+    if (!User.Identity.IsAuthenticated)
+    {
+        // Almacenar los datos de la reserva en TempData
+        TempData["IdPaquete"] = IdPaquete;
+        TempData["ServicioAdicional"] = JsonConvert.SerializeObject(servicioAdicional);
+        TempData["MetodoPago"] = metodoPago;
+
+        // Redirigir a la página de inicio de sesión
+        return RedirectToAction("Login", "Home");
+    }
+
+    // Continuar con la lógica de confirmación de la reserva...
+    var checkinDate = HttpContext.Session.GetString("CheckinDate");
+    var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
+    var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
+
+    var paquete = _context.Paquetes
+        .Include(p => p.PaquetesServicios)
+        .ThenInclude(ps => ps.IdServicioNavigation)
+        .FirstOrDefault(p => p.IdPaquete == IdPaquete);
+
+    if (paquete == null)
+    {
+        return NotFound();
+    }
+
+    decimal precioTotal = paquete.PrecioTotal;
+    var serviciosAdicionales = new List<Servicio>();
+
+    foreach (var servicioId in servicioAdicional)
+    {
+        var servicio = _context.Servicios.Find(int.Parse(servicioId));
+        if (servicio != null)
         {
-            var checkinDate = HttpContext.Session.GetString("CheckinDate");
-            var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
-            var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
-
-            var paquete = _context.Paquetes
-                .Include(p => p.PaquetesServicios)
-                .ThenInclude(ps => ps.IdServicioNavigation)
-                .FirstOrDefault(p => p.IdPaquete == IdPaquete);
-
-            if (paquete == null)
-            {
-                return NotFound();
-            }
-
-            decimal precioTotal = paquete.PrecioTotal;
-            var serviciosAdicionales = new List<Servicio>();
-
-            foreach (var servicioId in servicioAdicional)
-            {
-                var servicio = _context.Servicios.Find(int.Parse(servicioId));
-                if (servicio != null)
-                {
-                    precioTotal += servicio.PrecioServicio;
-                    serviciosAdicionales.Add(servicio);
-                }
-            }
-
-            var nuevaReserva = new Reserva
-            {
-                IdPaquete = IdPaquete,
-                FechaReserva = DateTime.Now,
-                FechaInicio = DateTime.Parse(checkinDate),
-                FechaFin = DateTime.Parse(checkoutDate),
-                NroPersonas = numeroPersonas,
-                MontoTotal = precioTotal,
-                Abono = 0,
-                EstadoReserva = "Pendiente"
-            };
-
-            _context.Reservas.Add(nuevaReserva);
-            _context.SaveChanges();
-
-            foreach (var servicio in serviciosAdicionales)
-            {
-                var reservaServicio = new ReservasServicio
-                {
-                    IdReserva = nuevaReserva.IdReserva,
-                    IdServicio = servicio.IdServicio
-                };
-                _context.ReservasServicios.Add(reservaServicio);
-            }
-
-            _context.SaveChanges();
-
-            return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
+            precioTotal += servicio.PrecioServicio;
+            serviciosAdicionales.Add(servicio);
         }
+    }
 
+    var userIdClaim = User.FindFirst("IdUsuario");
+    if (userIdClaim == null)
+    {
+        return Unauthorized();
+    }
+
+    int idUsuario = int.Parse(userIdClaim.Value);
+
+    var nuevaReserva = new Reserva
+    {
+        IdPaquete = IdPaquete,
+        FechaReserva = DateTime.Now,
+        FechaInicio = DateTime.Parse(checkinDate),
+        FechaFin = DateTime.Parse(checkoutDate),
+        NroPersonas = numeroPersonas,
+        MontoTotal = precioTotal,
+        Abono = 0,
+        EstadoReserva = "Pendiente",
+        IdUsuario = idUsuario
+    };
+
+    _context.Reservas.Add(nuevaReserva);
+    _context.SaveChanges();
+
+    foreach (var servicio in serviciosAdicionales)
+    {
+        var reservaServicio = new ReservasServicio
+        {
+            IdReserva = nuevaReserva.IdReserva,
+            IdServicio = servicio.IdServicio
+        };
+        _context.ReservasServicios.Add(reservaServicio);
+    }
+
+    _context.SaveChanges();
+
+    return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
+}
         public IActionResult ConfirmacionReserva(int id)
         {
             var reserva = _context.Reservas
@@ -233,7 +255,7 @@ public async Task<IActionResult> Login(LoginViewModel model)
         {
             new Claim(ClaimTypes.Name, usuario.CorreoUsuario),
             new Claim("IdUsuario", usuario.IdUsuario.ToString()),
-            new Claim("IdRol", usuario.IdRol.ToString()) // Añadir el rol en los claims
+            new Claim("IdRol", usuario.IdRol.ToString())
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -249,18 +271,27 @@ public async Task<IActionResult> Login(LoginViewModel model)
             authProperties
         );
 
+        // Verificar si hay datos de reserva en TempData
+        if (TempData["IdPaquete"] != null)
+        {
+            var idPaquete = (int)TempData["IdPaquete"];
+            var servicioAdicional = JsonConvert.DeserializeObject<string[]>(TempData["ServicioAdicional"].ToString());
+            var metodoPago = TempData["MetodoPago"].ToString();
+
+            return RedirectToAction("ResumenReserva", "Home", new { id = idPaquete });
+        }
+
         // Redirigir basado en el rol del usuario
         if (usuario.IdRol == 1)
         {
-            return RedirectToAction("Index", "Home"); // Redirigir a la vista para clientes
+            return RedirectToAction("Index", "Home");
         }
         else
         {
-            return RedirectToAction("Dashboard", "Admin"); // Redirigir al dashboard administrativo
+            return RedirectToAction("Dashboard", "Admin");
         }
     }
 
-    // Si el usuario no es válido, agrega un error al modelo de vista
     ModelState.AddModelError("", "Correo electrónico o contraseña incorrectos.");
     return View("~/Views/Account/Login.cshtml", model);
 }
