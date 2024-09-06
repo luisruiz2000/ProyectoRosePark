@@ -23,12 +23,12 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Hace que la cookie sea esencial
 });
 
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Home/Login";
-        options.LogoutPath = "/Home/Logout";
+        options.LoginPath = "/Account/Login";
+        options.LogoutPath = "/Account/Logout";
     });
 
 var app = builder.Build();

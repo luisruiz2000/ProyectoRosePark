@@ -114,86 +114,86 @@ namespace RosePark.Controllers
         }
 
         [HttpPost]
-public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional, string metodoPago)
-{
-    // Verificar si el usuario está autenticado
-    if (!User.Identity.IsAuthenticated)
-    {
-        // Almacenar los datos de la reserva en TempData
-        TempData["IdPaquete"] = IdPaquete;
-        TempData["ServicioAdicional"] = JsonConvert.SerializeObject(servicioAdicional);
-        TempData["MetodoPago"] = metodoPago;
-
-        // Redirigir a la página de inicio de sesión
-        return RedirectToAction("Login", "Home");
-    }
-
-    // Continuar con la lógica de confirmación de la reserva...
-    var checkinDate = HttpContext.Session.GetString("CheckinDate");
-    var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
-    var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
-
-    var paquete = _context.Paquetes
-        .Include(p => p.PaquetesServicios)
-        .ThenInclude(ps => ps.IdServicioNavigation)
-        .FirstOrDefault(p => p.IdPaquete == IdPaquete);
-
-    if (paquete == null)
-    {
-        return NotFound();
-    }
-
-    decimal precioTotal = paquete.PrecioTotal;
-    var serviciosAdicionales = new List<Servicio>();
-
-    foreach (var servicioId in servicioAdicional)
-    {
-        var servicio = _context.Servicios.Find(int.Parse(servicioId));
-        if (servicio != null)
+        public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional, string metodoPago)
         {
-            precioTotal += servicio.PrecioServicio;
-            serviciosAdicionales.Add(servicio);
+            // Verificar si el usuario está autenticado
+            if (!User.Identity.IsAuthenticated)
+            {
+                // Almacenar los datos de la reserva en TempData
+                TempData["IdPaquete"] = IdPaquete;
+                TempData["ServicioAdicional"] = JsonConvert.SerializeObject(servicioAdicional);
+                TempData["MetodoPago"] = metodoPago;
+
+                // Redirigir a la página de inicio de sesión
+                return RedirectToAction("Login", "Home");
+            }
+
+            // Continuar con la lógica de confirmación de la reserva...
+            var checkinDate = HttpContext.Session.GetString("CheckinDate");
+            var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
+            var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
+
+            var paquete = _context.Paquetes
+                .Include(p => p.PaquetesServicios)
+                .ThenInclude(ps => ps.IdServicioNavigation)
+                .FirstOrDefault(p => p.IdPaquete == IdPaquete);
+
+            if (paquete == null)
+            {
+                return NotFound();
+            }
+
+            decimal precioTotal = paquete.PrecioTotal;
+            var serviciosAdicionales = new List<Servicio>();
+
+            foreach (var servicioId in servicioAdicional)
+            {
+                var servicio = _context.Servicios.Find(int.Parse(servicioId));
+                if (servicio != null)
+                {
+                    precioTotal += servicio.PrecioServicio;
+                    serviciosAdicionales.Add(servicio);
+                }
+            }
+
+            var userIdClaim = User.FindFirst("IdUsuario");
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int idUsuario = int.Parse(userIdClaim.Value);
+
+            var nuevaReserva = new Reserva
+            {
+                IdPaquete = IdPaquete,
+                FechaReserva = DateTime.Now,
+                FechaInicio = DateTime.Parse(checkinDate),
+                FechaFin = DateTime.Parse(checkoutDate),
+                NroPersonas = numeroPersonas,
+                MontoTotal = precioTotal,
+                Abono = 0,
+                EstadoReserva = "Pendiente",
+                IdUsuario = idUsuario
+            };
+
+            _context.Reservas.Add(nuevaReserva);
+            _context.SaveChanges();
+
+            foreach (var servicio in serviciosAdicionales)
+            {
+                var reservaServicio = new ReservasServicio
+                {
+                    IdReserva = nuevaReserva.IdReserva,
+                    IdServicio = servicio.IdServicio
+                };
+                _context.ReservasServicios.Add(reservaServicio);
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
         }
-    }
-
-    var userIdClaim = User.FindFirst("IdUsuario");
-    if (userIdClaim == null)
-    {
-        return Unauthorized();
-    }
-
-    int idUsuario = int.Parse(userIdClaim.Value);
-
-    var nuevaReserva = new Reserva
-    {
-        IdPaquete = IdPaquete,
-        FechaReserva = DateTime.Now,
-        FechaInicio = DateTime.Parse(checkinDate),
-        FechaFin = DateTime.Parse(checkoutDate),
-        NroPersonas = numeroPersonas,
-        MontoTotal = precioTotal,
-        Abono = 0,
-        EstadoReserva = "Pendiente",
-        IdUsuario = idUsuario
-    };
-
-    _context.Reservas.Add(nuevaReserva);
-    _context.SaveChanges();
-
-    foreach (var servicio in serviciosAdicionales)
-    {
-        var reservaServicio = new ReservasServicio
-        {
-            IdReserva = nuevaReserva.IdReserva,
-            IdServicio = servicio.IdServicio
-        };
-        _context.ReservasServicios.Add(reservaServicio);
-    }
-
-    _context.SaveChanges();
-
-    return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
-}
         public IActionResult ConfirmacionReserva(int id)
         {
             var reserva = _context.Reservas
@@ -232,76 +232,6 @@ public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional,
             return View(modeloConfirmacion);
         }
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View("~/Views/Account/Login.cshtml", new LoginViewModel());
-        }
-
-[HttpPost]
-public async Task<IActionResult> Login(LoginViewModel model)
-{
-    if (!ModelState.IsValid)
-    {
-        return View("~/Views/Account/Login.cshtml", model);
-    }
-
-    var usuario = _context.Usuarios
-        .FirstOrDefault(u => u.CorreoUsuario == model.CorreoUsuario && u.ClaveUsuario == model.ClaveUsuario);
-
-    if (usuario != null)
-    {
-        var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, usuario.CorreoUsuario),
-            new Claim("IdUsuario", usuario.IdUsuario.ToString()),
-            new Claim("IdRol", usuario.IdRol.ToString())
-        };
-
-        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-        var authProperties = new AuthenticationProperties
-        {
-            IsPersistent = model.RememberMe,
-        };
-
-        await HttpContext.SignInAsync(
-            CookieAuthenticationDefaults.AuthenticationScheme,
-            new ClaimsPrincipal(claimsIdentity),
-            authProperties
-        );
-
-        // Verificar si hay datos de reserva en TempData
-        if (TempData["IdPaquete"] != null)
-        {
-            var idPaquete = (int)TempData["IdPaquete"];
-            var servicioAdicional = JsonConvert.DeserializeObject<string[]>(TempData["ServicioAdicional"].ToString());
-            var metodoPago = TempData["MetodoPago"].ToString();
-
-            return RedirectToAction("ResumenReserva", "Home", new { id = idPaquete });
-        }
-
-        // Redirigir basado en el rol del usuario
-        if (usuario.IdRol == 1)
-        {
-            return RedirectToAction("Index", "Home");
-        }
-        else
-        {
-            return RedirectToAction("Dashboard", "Admin");
-        }
-    }
-
-    ModelState.AddModelError("", "Correo electrónico o contraseña incorrectos.");
-    return View("~/Views/Account/Login.cshtml", model);
-}
-
-
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Home");
-        }
 
         [HttpGet]
         public IActionResult Register()
