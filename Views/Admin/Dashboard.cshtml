@@ -1,5 +1,14 @@
 @{
     ViewData["Title"] = "Dashboard Administrativo";
+    @using RosePark.Models.ViewModels;
+    Layout = "_AdminLayout";
+
+    // Casting de ViewBag
+    var paquetesPopulares = ViewBag.PaquetesPopulares as List<PaqueteViewModel>;
+    var cantidadReservas = paquetesPopulares?.Select(p => p.CantidadReservas);
+
+    // Casting para ReservasPorMes
+    var reservasPorMes = ViewBag.ReservasPorMes as List<ReservasPorMesViewModel>;
 }
 
 <!DOCTYPE html>
@@ -9,25 +18,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container {
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Ajusta la altura según sea necesario */
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-4">
         <h2>Dashboard Administrativo</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href="#">Gestión de Usuarios</a></li>
-                    <li class="list-group-item"><a href="#">Gestión de Habitaciones</a></li>
-                    <li class="list-group-item"><a href="#">Gestión de Paquetes</a></li>
-                    <li class="list-group-item"><a href="#">Reportes</a></li>
-                </ul>
+        
+        <!-- Ocupación de Habitaciones -->
+        <div class="card">
+            <div class="card-body">
+                <h3>Ocupación de Habitaciones</h3>
+                <div class="chart-container">
+                    <canvas id="ocupacionChart"></canvas>
+                </div>
             </div>
-            <div class="col-md-9">
-                <h3>Contenido Principal</h3>
-                <!-- Aquí puedes agregar contenido específico para el dashboard -->
+        </div>
+
+        <!-- Reservas por Mes -->
+        <div class="card">
+            <div class="card-body">
+                <h3>Reservas por Mes</h3>
+                <div class="chart-container">
+                    <canvas id="reservasMesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paquetes Populares -->
+        <div class="card">
+            <div class="card-body">
+                <h3>Paquetes Populares</h3>
+                <div class="chart-container">
+                    <canvas id="paquetesPopularesChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ingresos Generados -->
+        <div class="card">
+            <div class="card-body">
+                <h3>Ingresos Totales</h3>
+                <p>Total ingresos: @ViewBag.IngresosTotales.ToString("C")</p>
             </div>
         </div>
     </div>
+
+    <script>
+        // Ocupación de habitaciones
+        var ocupacionCtx = document.getElementById('ocupacionChart').getContext('2d');
+        new Chart(ocupacionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ocupadas', 'Disponibles'],
+                datasets: [{
+                    data: [@ViewBag.Ocupacion, @(100 - ViewBag.Ocupacion)],
+                    backgroundColor: ['#FF6384', '#36A2EB']
+                }]
+            }
+        });
+
+        // Reservas por mes
+        var reservasMesCtx = document.getElementById('reservasMesChart').getContext('2d');
+        var reservasPorMesLabels = @Html.Raw(Json.Serialize(reservasPorMes.Select(r => "Mes " + r.Mes).ToList()));
+        var reservasPorMesData = @Html.Raw(Json.Serialize(reservasPorMes.Select(r => r.CantidadReservas).ToList()));
+        new Chart(reservasMesCtx, {
+            type: 'bar',
+            data: {
+                labels: reservasPorMesLabels,
+                datasets: [{
+                    label: 'Reservas por Mes',
+                    data: reservasPorMesData,
+                    backgroundColor: '#42A5F5'
+                }]
+            }
+        });
+
+        // Paquetes Populares
+        var paquetesPopularesCtx = document.getElementById('paquetesPopularesChart').getContext('2d');
+        var paquetesPopularesLabels = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.Paquete).ToList()));
+        var paquetesPopularesData = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.CantidadReservas).ToList()));
+        new Chart(paquetesPopularesCtx, {
+            type: 'pie',
+            data: {
+                labels: paquetesPopularesLabels,
+                datasets: [{
+                    label: 'Reservas por Paquete',
+                    data: paquetesPopularesData,
+                    backgroundColor: '#FFCE56'
+                }]
+            }
+        });
+    </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 </body>

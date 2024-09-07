@@ -1,0 +1,35 @@
+@model IEnumerable<Paquete>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>Gestión de Paquetes</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio Total</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var paquete in Model)
+        {
+            <tr>
+                <td>@paquete.IdPaquete</td>
+                <td>@paquete.NombrePaquete</td>
+                <td>@paquete.Descripcion</td>
+                <td>@paquete.PrecioTotal.ToString("C")</td>
+                <td>@paquete.Estado</td>
+                <td>
+                    <a href="@Url.Action("EditarPaquete", new { id = paquete.IdPaquete })">Editar</a> |
+                    <a href="@Url.Action("EliminarPaquete", new { id = paquete.IdPaquete })" onclick="return confirm('¿Está seguro de que desea eliminar este paquete?');">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

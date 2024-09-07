@@ -1,0 +1,32 @@
+@model Paquete
+
+@{
+    @using RosePark.Models.ViewModels
+    Layout = "_AdminLayout";
+}
+
+<h2>Editar Paquete</h2>
+
+<form asp-action="EditarPaquete">
+    <div class="form-group">
+        <label asp-for="NombrePaquete" class="form-label"></label>
+        <input asp-for="NombrePaquete" class="form-control" />
+        <span asp-validation-for="NombrePaquete" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion" class="form-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrecioTotal" class="form-label"></label>
+        <input asp-for="PrecioTotal" class="form-control" />
+        <span asp-validation-for="PrecioTotal" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Estado" class="form-label"></label>
+        <input asp-for="Estado" class="form-control" />
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

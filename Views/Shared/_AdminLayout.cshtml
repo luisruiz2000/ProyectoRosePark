@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Dashboard Administrativo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/nav.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/RosePark.styles.css" asp-append-version="true" />
+    <style>
+        .sidebar {
+            height: 100vh;
+            background-color: #f8f9fa;
+            position: fixed;
+            width: 250px;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+
+        .nav-link {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="container">
+            <h4>Admin Dashboard</h4>
+            <div class="nav flex-column">
+                <a class="nav-link" href="/Admin/Usuarios">Gestión de Usuarios</a>
+                <a class="nav-link" href="/Admin/Paquetes">Gestión de Paquetes</a>
+                <a class="nav-link" href="/Admin/Servicios">Gestión de Servicios</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        @RenderBody()
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

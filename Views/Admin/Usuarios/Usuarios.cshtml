@@ -1,0 +1,44 @@
+@model IEnumerable<UsuarioViewModel>
+
+@{
+    @using RosePark.Models.ViewModels
+    Layout = "_AdminLayout";
+}
+
+<h2>Gestión de Usuarios</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Correo</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Documento</th>
+            <th>Edad</th>
+            <th>Celular</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.IdUsuario</td>
+                <td>@user.CorreoUsuario</td>
+                <td>@user.NombrePersona</td>
+                <td>@user.ApellidosPersona</td>
+                <td>@user.NroDocumentoPersona</td>
+                <td>@user.EdadPersona</td>
+                <td>@user.CelularPersona</td>
+                <td>@user.FechaNacimientoPersona.ToShortDateString()</td>
+                <td>@user.NombreRol</td>
+                <td>
+                    <a href="@Url.Action("EditarUsuario", new { id = user.IdUsuario })">Editar</a> |
+                    <a href="@Url.Action("EliminarUsuario", new { id = user.IdUsuario })" onclick="return confirm('¿Está seguro de que desea eliminar este usuario?');">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
