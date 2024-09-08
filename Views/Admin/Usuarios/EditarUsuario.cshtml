@@ -13,7 +13,7 @@
 
     <div class="form-group">
         <label for="ClaveUsuario">Contraseña</label>
-        <input asp-for="ClaveUsuario" class="form-control" />
+        <input asp-for="ClaveUsuario" type="text" class="form-control" />
         <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
     </div>
 
@@ -58,6 +58,14 @@
         <input asp-for="FechaNacimientoPersona" type="date" class="form-control" />
         <span asp-validation-for="FechaNacimientoPersona" class="text-danger"></span>
     </div>
+
+    <div class="form-group">
+        <label for="IdRol">Rol</label>
+        <select asp-for="IdRol" class="form-control" asp-items="ViewBag.Roles"></select>
+        <span asp-validation-for="IdRol" class="text-danger"></span>
+    </div>
+
+    <input type="hidden" asp-for="IdUsuario" />
 
     <button type="submit" class="btn btn-primary">Guardar</button>
 </form>

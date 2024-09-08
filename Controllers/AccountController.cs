@@ -27,57 +27,57 @@ namespace RosePark.Controllers
             return View("Login"); // Esto buscará en /Views/Account/Login.cshtml
         }
         [HttpPost]
-public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
-{
-    // Si el modelo es inválido, retornar la vista de login
-    if (!ModelState.IsValid)
-    {
-        return View(model);
-    }
+        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
+        {
+            // Si el modelo es inválido, retornar la vista de login
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
 
-    // Verificar las credenciales y realizar el login
-    var user = _context.Usuarios.FirstOrDefault(u => u.CorreoUsuario == model.CorreoUsuario && u.ClaveUsuario == model.ClaveUsuario);
-    if (user == null)
-    {
-        ModelState.AddModelError("", "Usuario o contraseña incorrectos");
-        return View(model);
-    }
+            // Verificar las credenciales y realizar el login
+            var user = _context.Usuarios.FirstOrDefault(u => u.CorreoUsuario == model.CorreoUsuario && u.ClaveUsuario == model.ClaveUsuario);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "Usuario o contraseña incorrectos");
+                return View(model);
+            }
 
-    var claims = new List<Claim>
+            var claims = new List<Claim>
     {
         new Claim(ClaimTypes.Name, user.CorreoUsuario),
         new Claim("IdUsuario", user.IdUsuario.ToString()),
         new Claim(ClaimTypes.Role, user.IdRol.ToString())
     };
 
-    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-    var authProperties = new AuthenticationProperties
-    {
-        IsPersistent = model.RememberMe,
-        RedirectUri = returnUrl ?? Url.Action("Index", "Home") // Redirigir al returnUrl o a la página principal
-    };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = model.RememberMe,
+                RedirectUri = returnUrl ?? Url.Action("Index", "Home") // Redirigir al returnUrl o a la página principal
+            };
 
-    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-    // Redirigir basado en el IdRol
-    if (user.IdRol == 1)
-    {
-        // Redirigir a la vista normal para los clientes
-        if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-        {
-            return Redirect(returnUrl);
+            // Redirigir basado en el IdRol
+            if (user.IdRol == 1)
+            {
+                // Redirigir a la vista normal para los clientes
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                // Redirigir al dashboard para usuarios administrativos
+                return RedirectToAction("Dashboard", "Admin");
+            }
         }
-        else
-        {
-            return RedirectToAction("Index", "Home");
-        }
-    }
-    else
-    {
-        // Redirigir al dashboard para usuarios administrativos
-        return RedirectToAction("Dashboard", "Admin");
-    }
-}
 
 
 

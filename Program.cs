@@ -43,6 +43,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseDeveloperExceptionPage();
 app.UseRouting();
 
 // Habilitar el uso de sesiones
