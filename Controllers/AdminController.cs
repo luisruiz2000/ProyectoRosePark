@@ -212,12 +212,25 @@ namespace RosePark.Controllers
 
         public IActionResult EliminarUsuario(int id)
         {
-            var usuario = _context.Usuarios.Find(id);
+            var usuario = _context.Usuarios
+                .Include(u => u.IdPersonasNavigation)  // Incluir la relación con Personas
+                .FirstOrDefault(u => u.IdUsuario == id);
+
             if (usuario != null)
             {
+                // Primero eliminar la persona asociada
+                if (usuario.IdPersonasNavigation != null)
+                {
+                    _context.Personas.Remove(usuario.IdPersonasNavigation);
+                }
+
+                // Luego eliminar el usuario
                 _context.Usuarios.Remove(usuario);
+
+                // Guardar cambios
                 _context.SaveChanges();
             }
+
             return RedirectToAction(nameof(Usuarios));
         }
 
@@ -228,62 +241,64 @@ namespace RosePark.Controllers
 
 
 
-        [HttpGet]
         public IActionResult CrearUsuario()
         {
+            // Cargar datos para los select
             ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre");
-            return View("Usuarios/CrearUsuario", new UsuarioViewModel());
+
+            return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml");
         }
 
-        // Acción para procesar el formulario de creación
         [HttpPost]
         public async Task<IActionResult> CrearUsuario(UsuarioViewModel model)
         {
             if (!ModelState.IsValid)
             {
+                // Registrar los errores del modelo para debug
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Error: {error.ErrorMessage}");
+                }
+
+                // Cargar las listas nuevamente si la validación falla
                 ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
-                return View("Usuarios/CrearUsuario", model);
+                return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml", model);
             }
 
             try
             {
-                var nuevoUsuario = new Usuario
+                var usuario = new Usuario
                 {
                     CorreoUsuario = model.CorreoUsuario,
-                    ClaveUsuario = model.ClaveUsuario, // Almacenar en texto plano
-                    IdPersonas = model.IdPersonas, // Si es necesario
-                    IdRol = model.IdRol
+                    ClaveUsuario = model.ClaveUsuario,
+                    IdRol = model.IdRol,
+                    IdPersonasNavigation = new Persona
+                    {
+                        Nombres = model.NombrePersona,
+                        Apellidos = model.ApellidosPersona,
+                        TipoDocumento = model.TipoDocumentoPersona,
+                        NroDocumento = model.NroDocumentoPersona,
+                        Edad = model.EdadPersona,
+                        Celular = model.CelularPersona,
+                        FechaNacimiento = model.FechaNacimientoPersona
+                    }
                 };
 
-                // Añadir la información de la persona
-                var nuevaPersona = new Persona
-                {
-                    Nombres = model.NombrePersona,
-                    Apellidos = model.ApellidosPersona,
-                    TipoDocumento = model.TipoDocumentoPersona,
-                    NroDocumento = model.NroDocumentoPersona,
-                    Edad = model.EdadPersona,
-                    Celular = model.CelularPersona,
-                    FechaNacimiento = model.FechaNacimientoPersona
-                };
-
-                _context.Personas.Add(nuevaPersona);
-                await _context.SaveChangesAsync();
-
-                nuevoUsuario.IdPersonas = nuevaPersona.IdPersonas; // Actualizar con el Id de la persona
-
-                _context.Usuarios.Add(nuevoUsuario);
+                _context.Usuarios.Add(usuario);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction("Usuarios");
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError("", "No se pudo crear el usuario. Inténtalo de nuevo.");
+                // Mostrar el error en consola y enviar mensaje a la vista
+                Console.WriteLine($"Error al guardar el usuario: {ex.Message}");
+                ModelState.AddModelError("", "No se pudo guardar el usuario. Inténtalo de nuevo.");
                 ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
-                return View("Usuarios/CrearUsuario", model);
+                return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml", model);
             }
         }
+
 
 
 

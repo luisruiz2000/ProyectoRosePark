@@ -1,0 +1,75 @@
+@model RosePark.Models.ViewModels.UsuarioViewModel
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<form asp-action="CrearUsuario" method="post">
+    <div class="form-group">
+        <label for="CorreoUsuario">Correo Electrónico</label>
+        <input asp-for="CorreoUsuario" class="form-control" />
+        <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ClaveUsuario">Contraseña</label>
+        <input asp-for="ClaveUsuario" type="password" class="form-control" />
+        <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="NombrePersona">Nombre</label>
+        <input asp-for="NombrePersona" class="form-control" />
+        <span asp-validation-for="NombrePersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ApellidosPersona">Apellidos</label>
+        <input asp-for="ApellidosPersona" class="form-control" />
+        <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="TipoDocumentoPersona">Tipo de Documento</label>
+        <select asp-for="TipoDocumentoPersona" class="form-control">
+            <option value="CC">Cédula de Ciudadanía</option>
+            <option value="TI">Tarjeta de Identidad</option>
+            <option value="CE">Cédula de Extranjería</option>
+            <option value="PB">Pasaporte</option>
+            <option value="PEP">Permiso Especial de Permanencia</option>
+        </select>
+        <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="NroDocumentoPersona">Número de Documento</label>
+        <input asp-for="NroDocumentoPersona" class="form-control" />
+        <span asp-validation-for="NroDocumentoPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="EdadPersona">Edad</label>
+        <input asp-for="EdadPersona" class="form-control" />
+        <span asp-validation-for="EdadPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CelularPersona">Celular</label>
+        <input asp-for="CelularPersona" class="form-control" />
+        <span asp-validation-for="CelularPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="FechaNacimientoPersona">Fecha de Nacimiento</label>
+        <input asp-for="FechaNacimientoPersona" type="date" class="form-control" />
+        <span asp-validation-for="FechaNacimientoPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="IdRol">Rol</label>
+        <select asp-for="IdRol" class="form-control" asp-items="ViewBag.Roles"></select>
+        <span asp-validation-for="IdRol" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
