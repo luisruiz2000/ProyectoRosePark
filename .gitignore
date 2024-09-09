@@ -1,1 +1,5 @@
 appsettings.json
+
+# Carpetas de compilación
+bin/
+obj/
