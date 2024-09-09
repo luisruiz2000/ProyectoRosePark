@@ -12,32 +12,52 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
-    <section class="container mt-4">
-        <h2>Resumen de la Reserva</h2>
+<style>
+    .contain {
+        margin-top: 6rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 
-        <div class="row mb-4">
-            <div class="col-md-6">
-                <h3>@Model.NombrePaquete</h3>
-                <p><strong>Descripción:</strong> @Model.Descripcion</p>
-                <p><strong>Habitación:</strong> @Model.NorHabitacion</p>
-                <p><strong>Fecha de Inicio:</strong> @Model.FechaInicio.ToShortDateString()</p>
-                <p><strong>Fecha de Fin:</strong> @Model.FechaFin.ToShortDateString()</p>
-                <p><strong>Número de Personas:</strong> @Model.NumeroPersonas</p>
-                <p><strong>Precio Total:</strong> <span id="precioTotal" data-base-precio="@Model.PrecioTotal">@Model.PrecioTotal.ToString("C")</span></p>
-                
-                <h3>Servicios incluidos en el Paquete</h3>
+    .imgResumenReserva {
+        border-radius: 10px;
+    }
+
+    .items-end {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5rem;
+    }
+</style>
+
+<body class="bg-white">
+
+    <div class="contain d-flex text-start">
+        <img src="~/img/ResumenReserva.jpg" class="imgResumenReserva me-4" alt="foto gramping" width="500">
+        <div class="w-50">
+            <section>
+                <h4>@Model.NombrePaquete</h4>
+                <p> @Model.Descripcion Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem
+                    dignissimos vitae natus libero, at quibusdam fugiat. Ipsa reprehenderit veniam id</p>
+                <p><strong>Habitación</strong> @Model.NorHabitacion</p>
+                <p><strong>Fechas</strong> @Model.FechaInicio.ToShortDateString() - @Model.FechaFin.ToShortDateString()
+                </p>
+                <p><strong>Personas</strong> @Model.NumeroPersonas</p>
+            </section>
+            <hr>
+            <section>
+                <h5>Servicios incluidos en el Paquete</h5>
                 <ul>
                     @foreach (var servicio in Model.ServiciosAdicionales)
                     {
                         <li>@servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")</li>
                     }
                 </ul>
-            </div>
-        </div>
-
-        <div class="row mb-4">
-            <div class="col-md-6">
+            </section>
+            <hr>
+            <section>
                 <h3>Selecciona Servicios Adicionales</h3>
                 <form asp-action="ConfirmarReserva" method="post">
                     <input type="hidden" name="IdPaquete" value="@Model.IdPaquete" />
@@ -46,12 +66,14 @@
                     @foreach (var servicio in Model.ServiciosDisponibles)
                     {
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="servicioAdicional" value="@servicio.IdServicio"
-                                data-precio="@servicio.PrecioServicio" id="servicio@servicio.IdServicio">
-                            <label class="form-check-label" for="servicio@servicio.IdServicio">@servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")</label>
+                            <input class="form-check-input" type="checkbox" name="servicioAdicional"
+                                value="@servicio.IdServicio" data-precio="@servicio.PrecioServicio"
+                                id="servicio@servicio.IdServicio">
+                            <label class="form-check-label" for="servicio@servicio.IdServicio">@servicio.NombreServicio -
+                                @servicio.PrecioServicio.ToString("C")</label>
                         </div>
                     }
-
+                    <hr>
                     <div class="form-group mt-3">
                         <label for="metodoPago">Método de Pago</label>
                         <select class="form-control" name="metodoPago" id="metodoPago">
@@ -61,11 +83,15 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-4">Confirmar Reserva</button>
+                    <div class="items-end">
+                        <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
+                        <h3 class="m-0"><strong class="me-2">Total</strong> <span id="precioTotal"
+                                data-base-precio="@Model.PrecioTotal">@Model.PrecioTotal.ToString("C")</span></h3>
+                    </div>
                 </form>
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
 
     <script>
         $(document).ready(function () {
