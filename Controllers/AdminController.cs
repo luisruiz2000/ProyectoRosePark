@@ -5,6 +5,7 @@ using RosePark.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
+
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 
@@ -77,8 +78,8 @@ namespace RosePark.Controllers
         public IActionResult Usuarios()
         {
             var usuarios = _context.Usuarios
-                .Include(u => u.IdPersonasNavigation) // Incluye los datos de Persona
-                .Include(u => u.IdRolNavigation) // Incluye los datos del Rol
+                .Include(u => u.IdPersonasNavigation)
+                .Include(u => u.IdRolNavigation)
                 .Select(u => new UsuarioViewModel
                 {
                     IdUsuario = u.IdUsuario,
@@ -89,11 +90,12 @@ namespace RosePark.Controllers
                     NroDocumentoPersona = u.IdPersonasNavigation.NroDocumento,
                     EdadPersona = u.IdPersonasNavigation.Edad,
                     CelularPersona = u.IdPersonasNavigation.Celular,
-                    FechaNacimientoPersona = u.IdPersonasNavigation.FechaNacimiento,
+                    FechaNacimientoPersona = u.IdPersonasNavigation.FechaNacimiento, // Asignar DateOnly directamente
                     NombreRol = u.IdRolNavigation.Nombre
-                }).ToList();
+                })
+                .ToList();
 
-            return View("Usuarios/Usuarios", usuarios); // Especifica la vista dentro de la carpeta Usuarios
+            return View("Usuarios/Usuarios", usuarios);
         }
 
 
@@ -117,8 +119,8 @@ namespace RosePark.Controllers
                         NroDocumentoPersona = u.IdPersonasNavigation.NroDocumento,
                         EdadPersona = u.IdPersonasNavigation.Edad,
                         CelularPersona = u.IdPersonasNavigation.Celular,
-                        FechaNacimientoPersona = u.IdPersonasNavigation.FechaNacimiento,
-                        IdRol = u.IdRol,
+                        FechaNacimientoPersona = u.IdPersonasNavigation.FechaNacimiento, // Convertir DateOnly a DateTime
+                        IdRol = u.IdRol ?? 0, // Manejar valor nullable
                         NombreRol = u.IdRolNavigation.Nombre
                     }).FirstOrDefault();
 
@@ -134,25 +136,29 @@ namespace RosePark.Controllers
             catch (Exception ex)
             {
                 // Log the exception and return a generic error message
-                Console.WriteLine(ex.Message); // Log the exception message
+                Console.WriteLine(ex.Message);
                 return StatusCode(500, "Internal server error");
             }
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> EditarUsuario(UsuarioViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                // Mostrar los errores de validación en la vista
+                // Registrar los errores del modelo para debug
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Error: {error.ErrorMessage}");
+                }
+
+                // Cargar las listas nuevamente si la validación falla
+                ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
                 return View("~/Views/Admin/Usuarios/EditarUsuario.cshtml", model);
             }
 
             try
             {
-                // Buscar el usuario en la base de datos
                 var usuario = await _context.Usuarios
                     .Include(u => u.IdPersonasNavigation)
                     .FirstOrDefaultAsync(u => u.IdUsuario == model.IdUsuario);
@@ -162,17 +168,15 @@ namespace RosePark.Controllers
                     return NotFound();
                 }
 
-                // Actualizar los datos del usuario
+                // Actualizar la información del usuario
                 usuario.CorreoUsuario = model.CorreoUsuario;
 
-                // Si estás manejando la contraseña, asegúrate de hashearla
+                // Manejo de contraseña si se ha especificado una
                 if (!string.IsNullOrEmpty(model.ClaveUsuario))
                 {
-                    var passwordHasher = new PasswordHasher<Usuario>();
-                    usuario.ClaveUsuario = passwordHasher.HashPassword(usuario, model.ClaveUsuario);
+                    usuario.ClaveUsuario = model.ClaveUsuario; // No hashear la contraseña
                 }
 
-                // Actualizar los datos de la persona asociada
                 if (usuario.IdPersonasNavigation != null)
                 {
                     usuario.IdPersonasNavigation.Nombres = model.NombrePersona;
@@ -184,41 +188,119 @@ namespace RosePark.Controllers
                     usuario.IdPersonasNavigation.FechaNacimiento = model.FechaNacimientoPersona;
                 }
 
-                // Guardar los cambios
-                _context.Update(usuario);
+                // Actualizar el rol
+                usuario.IdRol = model.IdRol;
+
+                _context.Entry(usuario).State = EntityState.Modified;
+                _context.Entry(usuario.IdPersonasNavigation).State = EntityState.Modified;
+
                 await _context.SaveChangesAsync();
 
-                // Redirigir a la lista de usuarios
                 return RedirectToAction("Usuarios");
             }
             catch (Exception ex)
             {
-                // Manejar o registrar la excepción
-                Console.WriteLine($"Error al guardar los cambios: {ex.Message}");
+                // Mostrar el error en consola y enviar mensaje a la vista
+                Console.WriteLine($"Error al guardar el usuario: {ex.Message}");
                 ModelState.AddModelError("", "No se pudo guardar el usuario. Inténtalo de nuevo.");
+                ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
                 return View("~/Views/Admin/Usuarios/EditarUsuario.cshtml", model);
             }
         }
 
 
 
-
-
-
-
-
-
-
         public IActionResult EliminarUsuario(int id)
         {
-            var usuario = _context.Usuarios.Find(id);
+            var usuario = _context.Usuarios
+                .Include(u => u.IdPersonasNavigation)  // Incluir la relación con Personas
+                .FirstOrDefault(u => u.IdUsuario == id);
+
             if (usuario != null)
             {
+                // Primero eliminar la persona asociada
+                if (usuario.IdPersonasNavigation != null)
+                {
+                    _context.Personas.Remove(usuario.IdPersonasNavigation);
+                }
+
+                // Luego eliminar el usuario
                 _context.Usuarios.Remove(usuario);
+
+                // Guardar cambios
                 _context.SaveChanges();
             }
+
             return RedirectToAction(nameof(Usuarios));
         }
+
+
+
+
+
+
+
+
+        public IActionResult CrearUsuario()
+        {
+            // Cargar datos para los select
+            ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre");
+
+            return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CrearUsuario(UsuarioViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                // Registrar los errores del modelo para debug
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"Error: {error.ErrorMessage}");
+                }
+
+                // Cargar las listas nuevamente si la validación falla
+                ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
+                return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml", model);
+            }
+
+            try
+            {
+                var usuario = new Usuario
+                {
+                    CorreoUsuario = model.CorreoUsuario,
+                    ClaveUsuario = model.ClaveUsuario,
+                    IdRol = model.IdRol,
+                    IdPersonasNavigation = new Persona
+                    {
+                        Nombres = model.NombrePersona,
+                        Apellidos = model.ApellidosPersona,
+                        TipoDocumento = model.TipoDocumentoPersona,
+                        NroDocumento = model.NroDocumentoPersona,
+                        Edad = model.EdadPersona,
+                        Celular = model.CelularPersona,
+                        FechaNacimiento = model.FechaNacimientoPersona
+                    }
+                };
+
+                _context.Usuarios.Add(usuario);
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction("Usuarios");
+            }
+            catch (Exception ex)
+            {
+                // Mostrar el error en consola y enviar mensaje a la vista
+                Console.WriteLine($"Error al guardar el usuario: {ex.Message}");
+                ModelState.AddModelError("", "No se pudo guardar el usuario. Inténtalo de nuevo.");
+                ViewBag.Roles = new SelectList(_context.Roles, "IdRol", "Nombre", model.IdRol);
+                return View("~/Views/Admin/Usuarios/CrearUsuario.cshtml", model);
+            }
+        }
+
+
+
 
 
 
