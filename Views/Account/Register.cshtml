@@ -4,61 +4,134 @@
     ViewData["Title"] = "Registrarse";
 }
 
-<div class="container">
-    <h2>@ViewData["Title"]</h2>
+<style>
+    .cont {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh !important;
+        text-align: center;
+        background-color: white;
+    }
 
-    <form asp-action="Register" method="post">
-        <div class="mb-3">
-            <label asp-for="CorreoUsuario" class="form-label"></label>
-            <input asp-for="CorreoUsuario" class="form-control" />
-            <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
+    .register {
+        backdrop-filter: blur(3px);
+        background-color: rgba(255, 255, 255, 0.048);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 2rem 2rem 0 2rem;
+    }
+
+    .message {
+        width: 50%;
+    }
+
+    .form-control {
+        border: none;
+        background-color: transparent;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 2rem;
+        width: 28vw;
+        border-radius: 0 !important;
+        margin: 1rem;
+        text-align: center;
+    }
+
+    .label {
+        margin-bottom: 1rem;
+    }
+
+    .btn {
+        border-radius: 25px;
+    }
+
+    .btn-regiter {
+        width: 25vw !important;
+        height: 44px;
+        margin-top: 2.5rem;
+    }
+</style>
+
+<div class="cont">
+
+    <form id="registerForm" asp-action="Register" method="post">
+        <h2 class="mb-2">@ViewData["Title"]</h2>
+        <center>
+            <p class="message">Crea tu cuenta y únete a nuestra comunidad. Completa el registro para disfrutar de
+                todos
+                nuestros servicios y
+                ofertas exclusivas. ¡Estamos emocionados de tenerte con nosotros!</p>
+        </center>
+        <hr>
+        <div class="register">
+
+            <div class="mb-3">
+                <label asp-for="Nombres" class="form-label">Nombres</label>
+                <input asp-for="Nombres" class="form-control" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Apellidos" class="form-label">Apellidos</label>
+                <input asp-for="Apellidos" class="form-control" />
+                <span asp-validation-for="Apellidos" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TipoDocumento" class="form-label">Tipo de Documento</label>
+                <input asp-for="TipoDocumento" class="form-control" />
+                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NroDocumento" class="form-label">Número de Documento</label>
+                <input asp-for="NroDocumento" class="form-control" />
+                <span asp-validation-for="NroDocumento" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Edad" type="number" class="form-label">Edad</label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Celular" type="tel" class="form-label">Celular</label>
+                <input asp-for="Celular" class="form-control" />
+                <span asp-validation-for="Celular" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CorreoUsuario" class="form-label">Correo Electrónico</label>
+                <input asp-for="CorreoUsuario" class="form-control" />
+                <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ClaveUsuario" class="form-label">Crea una Contraseña</label>
+                <input asp-for="ClaveUsuario" type="password" class="form-control" />
+                <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="ConfirmarClave" class="form-label">Confirmar Contraseña</label>
+                <input asp-for="ConfirmarClave" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmarClave" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input asp-for="FechaNacimiento" type="date" class="form-control" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            @* <a asp-action="Login" class="btn btn-link">Iniciar Sesión</a> *@
         </div>
-        <div class="mb-3">
-            <label asp-for="ClaveUsuario" class="form-label"></label>
-            <input asp-for="ClaveUsuario" type="password" class="form-control" />
-            <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="ConfirmarClave" class="form-label"></label>
-            <input asp-for="ConfirmarClave" type="password" class="form-control" />
-            <span asp-validation-for="ConfirmarClave" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Nombres" class="form-label"></label>
-            <input asp-for="Nombres" class="form-control" />
-            <span asp-validation-for="Nombres" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Apellidos" class="form-label"></label>
-            <input asp-for="Apellidos" class="form-control" />
-            <span asp-validation-for="Apellidos" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="TipoDocumento" class="form-label"></label>
-            <input asp-for="TipoDocumento" class="form-control" />
-            <span asp-validation-for="TipoDocumento" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="NroDocumento" class="form-label"></label>
-            <input asp-for="NroDocumento" class="form-control" />
-            <span asp-validation-for="NroDocumento" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Edad" class="form-label"></label>
-            <input asp-for="Edad" class="form-control" />
-            <span asp-validation-for="Edad" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Celular" class="form-label"></label>
-            <input asp-for="Celular" class="form-control" />
-            <span asp-validation-for="Celular" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="FechaNacimiento" class="form-label"></label>
-            <input asp-for="FechaNacimiento" type="date" class="form-control" />
-            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-        <a asp-action="Login" class="btn btn-link">Iniciar Sesión</a>
+        <button type="submit" id="registerButton" class="btn btn-regiter btn-primary text-center">Registrarse</button>
     </form>
 </div>
+
+<script>
+    document.getElementById('registerForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evita el envío automático del formulario
+
+        // Mostrar la alerta
+        alert('Registro completado, ahora puedes iniciar sesion');
+
+        // Redirigir a la página de inicio de sesión después de que el usuario cierre la alerta
+        window.location.href = 'http://localhost:5038/Account/Login';
+    });
+</script>

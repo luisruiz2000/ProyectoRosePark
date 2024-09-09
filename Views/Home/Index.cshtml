@@ -14,11 +14,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  </head>
+</head>
 
 <body>
   <header class="header">
-    <div id="carouselExampleAutoplaying" data-bs-interval="4000" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="img/1.jpg" class="d-block w-100 imgCarousel" alt="...">
@@ -30,12 +30,12 @@
           <img src="img/3.jpg" class="d-block w-100 imgCarousel" alt="...">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+      <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselExampleAutoplaying"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+      <button class="carousel-control-next d-none" type="button" data-bs-target="#carouselExampleAutoplaying"
         data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
@@ -44,11 +44,10 @@
   </header>
 
 
-
   <section class="buscador container-fluid d-flex">
     <form asp-action="Search" asp-controller="Home" method="post"
       class="d-flex justify-content-evenly align-items-end formBuscador">
-      
+
       <div class="row">
         <label for="checkinDate" class="font-weight-bold text-black">Check In</label>
         <input type="date" name="checkinDate" id="checkinDate" class="form-control" required>
@@ -77,26 +76,23 @@
 
   <section class="descripcion container-fluid d-flex">
     <div class="d-flex justify-content-center align-items-center">
+      <img src="img/img_3.jpg" alt="" class="imgDescripcion" width="600">
       <div class="">
         <h2 class="text-justify">Descubra Rose Park</h2><br>
-        <p class="text-justify pe-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsa enim dolore,
-          aperiam necessitatibus
-          unde iste deleniti nisi voluptatibus quasi, obcaecati odit tempora blanditiis accusamus veniam harum fugit
-          fuga error.
-          Voluptatem atque tempore optio consectetur perspiciatis ut, ullam eius cum deserunt velit fuga fugiat
-          facere. Voluptatem non ipsa neque animi, mollitia quaerat, minima, enim soluta praesentium aliquam quidem
-          suscipit obcaecati.</p>
-      </div>
-      <div class="">
-        <img src="img/img_3.jpg" alt="" class="imgDescripcion" width="600">
+        <p class="text-justify fs-6">Descubre una experiencia única en la naturaleza con nuestros exclusivos paquetes de
+          glamping, que combinan la aventura al aire libre con el confort de alojamientos de lujo. Disfruta de cabañas y
+          tiendas completamente equipadas, ubicadas en impresionantes paisajes, mientras te relajas con servicios como
+          limpieza diaria, comidas gourmet, y actividades personalizadas, desde fogatas hasta senderismo. Nuestros
+          paquetes están diseñados para brindarte una escapada perfecta, ya sea en pareja, con amigos o en familia.
+          Reserva ahora y vive la magia del glamping sin renunciar a la comodidad.</p>
       </div>
   </section>
 
 
 
-  <div id="paqueteCarousel" class="carousel slide paquetes container-fluid">
-    <h2 class="text-center">Nuestras habitaciones</h2>
-    <div class="carousel-inner">
+  <div id="paqueteCarousel" class="carousel paquetes container-fluid" data-bs-ride="carousel">
+    <h2 class="text-center mb-4">Nuestras habitaciones</h2>
+    <div class="carousel-inner mb-5">
       @for (int i = 0; i < habitaciones.Count(); i += 3)
       {
         <div class="carousel-item @(i == 0 ? "active" : "")">
@@ -105,7 +101,7 @@
             {
               var habitacion = habitaciones.ElementAt(j);
               <div class="col-md-4">
-                <div class="card shadow-lg" style="width: 18rem;">  
+                <div class="card shadow-lg" style="width: 18rem; height: 50vh;">
                   <img src="img/hero_1.jpg" class="card-img-top" alt="Imagen del Paquete">
                   <div class="card-body">
                     <h5 class="card-title">@habitacion.NorHabitacion</h5>
@@ -131,7 +127,8 @@
 
 
 
-<script src="/js/home.js"></script>
+
+  <script src="/js/home.js"></script>
 </body>
 
 </html>
