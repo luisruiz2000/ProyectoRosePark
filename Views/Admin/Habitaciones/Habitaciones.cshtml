@@ -34,7 +34,7 @@
                     <a href="@Url.Action("EditarHabitaciones", new { id = item.IdHabitacion })"
                         class="btn btn-warning">Editar</a>
 
-                    <form action="@Url.Action("EliminarHabitacion", new { id = item.IdHabitacion })" method="post"
+                    <form action="@Url.Action("EliminarHabitacion","admin", new { id = item.IdHabitacion })" method="post"
                         style="display:inline;"
                         onsubmit="return confirm('¿Está seguro que desea eliminar esta habitación?');">
                         <input type="hidden" name="id" value="@item.IdHabitacion" />

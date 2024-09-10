@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,25 +11,57 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
-<section class="container">
-    <h2>Confirmación de la Reserva</h2>
 
-    <div class="row mb-4">
-        <div class="col-md-6">
-            <h3>@Model.Paquete.NombrePaquete</h3>
-            <p><strong>Habitación:</strong> @Model.Paquete.IdHabitacionNavigation?.NorHabitacion</p>
-            <p><strong>Descripción:</strong> @Model.Paquete.Descripcion</p>
-            <p><strong>Precio Total:</strong> <span>@Model.PrecioTotal.ToString("C")</span></p>
-            <p><strong>Servicios Adicionales:</strong></p>
-            <ul>
-                @foreach (var servicio in Model.ServiciosAdicionales)
-                {
-                    <li>@servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")</li>
-                }
-            </ul>
+<body>
+
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .conf-reserva {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 2rem !important;
+            background-color: white;
+        }
+
+        .home {
+            font-size: 24px;
+        }
+    </style>
+
+    <section class="container">
+
+        <h2>Confirmación de la Reserva</h2>
+
+        <div class="conf-reserva">
+            <img src="~/img/comprobar.png" alt="" width="250" class="me-3">
+            <div class="">
+                @* <h3>@Model.Paquete.NombrePaquete</h3> *@
+                <h3>Habitación Matrimonial</h3>
+                <p><strong>Habitación</strong> @Model.Paquete.IdHabitacionNavigation?.NorHabitacion</p>
+                <p><strong>Descripción</strong> @Model.Paquete.Descripcion</p>
+                <p><strong>Precio Total</strong> <span>@Model.PrecioTotal.ToString("C")</span></p>
+                <p><strong>Servicios Adicionales</strong></p>
+                <ul>
+                    @foreach (var servicio in Model.ServiciosAdicionales)
+                    {
+                        <li>@servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")</li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
+
+        <a asp-action="index" class="home mt-5">Volver al Inicio</a>
+    </section>
 </body>
+
 </html>
