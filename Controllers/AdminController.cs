@@ -688,12 +688,18 @@ namespace RosePark.Controllers
             return View("Habitaciones/Habitaciones", habitaciones);
         }
 
+
+
+
         // GET: CrearHabitaciones
         public IActionResult CrearHabitaciones()
         {
             ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre");
             return View("Habitaciones/CrearHabitaciones");
         }
+
+
+
 
         // POST: CrearHabitaciones
         [HttpPost]
@@ -709,6 +715,9 @@ namespace RosePark.Controllers
             ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre");
             return View("Habitaciones/CrearHabitaciones", habitacion);
         }
+
+
+
 
         // GET: EditarHabitaciones/5
         public async Task<IActionResult> EditarHabitaciones(int? id)
@@ -726,6 +735,9 @@ namespace RosePark.Controllers
             ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre", habitacion.IdTipoHabitacion);
             return View("Habitaciones/EditarHabitaciones", habitacion);
         }
+
+
+
 
         // POST: EditarHabitaciones/5
         [HttpPost]
@@ -760,6 +772,26 @@ namespace RosePark.Controllers
             ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre", habitacion.IdTipoHabitacion);
             return View("Habitaciones/EditarHabitaciones", habitacion);
         }
+
+
+
+        // POST: EliminarHabitacion/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EliminarHabitacion(int id)
+        {
+            var habitacion = await _context.Habitaciones.FindAsync(id);
+            if (habitacion == null)
+            {
+                return NotFound();
+            }
+
+            _context.Habitaciones.Remove(habitacion);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Habitaciones));
+        }
+
+
 
 
 
