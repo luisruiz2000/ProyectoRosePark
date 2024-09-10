@@ -1,0 +1,41 @@
+@model RosePark.Models.Habitacione
+
+@{
+    ViewData["Title"] = "Editar Habitación";
+    Layout = "_AdminLayout";
+}
+
+<h2>Editar Habitación</h2>
+
+<form asp-action="EditarHabitaciones" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdHabitacion" />
+    <!-- Los mismos campos que en CrearHabitaciones -->
+    <div class="form-group">
+        <label asp-for="NorHabitacion" class="control-label"></label>
+        <input asp-for="NorHabitacion" class="form-control" />
+        <span asp-validation-for="NorHabitacion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion" class="control-label"></label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EstadoHabitacion" class="control-label"></label>
+        <input asp-for="EstadoHabitacion" class="form-control" />
+        <span asp-validation-for="EstadoHabitacion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PrecioHabitacion" class="control-label"></label>
+        <input asp-for="PrecioHabitacion" class="form-control" />
+        <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IdTipoHabitacion" class="control-label"></label>
+        <select asp-for="IdTipoHabitacion" class="form-control" asp-items="ViewBag.TiposHabitacion"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>

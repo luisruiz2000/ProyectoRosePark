@@ -1,0 +1,40 @@
+@model IEnumerable<RosePark.Models.Habitacione>
+
+@{
+    ViewData["Title"] = "Habitaciones";
+    Layout = "_AdminLayout";
+}
+
+<h2>Lista de Habitaciones</h2>
+
+<p>
+    <a asp-action="CrearHabitaciones" class="btn btn-primary">Crear Nueva Habitación</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.NorHabitacion)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.EstadoHabitacion)</th>
+            <th>@Html.DisplayNameFor(model => model.PrecioHabitacion)</th>
+            <th>@Html.DisplayNameFor(model => model.IdTipoHabitacionNavigation.Nombre)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.NorHabitacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.EstadoHabitacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.PrecioHabitacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.IdTipoHabitacionNavigation.Nombre)</td>
+                <td>
+                    <a asp-action="EditarHabitaciones" asp-route-id="@item.IdHabitacion">Editar</a> |
+                    <a asp-action="EliminarHabitacion" asp-route-id="@item.IdHabitacion">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

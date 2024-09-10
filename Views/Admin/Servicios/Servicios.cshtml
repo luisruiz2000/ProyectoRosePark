@@ -5,6 +5,8 @@
 }
 
 <h2>Gestión de Servicios</h2>
+<a href="@Url.Action("CrearServicio")" class="btn btn-primary">Crear Nuevo Servicio</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -26,9 +28,17 @@
                 <td>@servicio.PrecioServicio.ToString("C")</td>
                 <td>@servicio.EstadoServicio</td>
                 <td>
-                    <a href="@Url.Action("EditarServicio", new { id = servicio.IdServicio })">Editar</a> |
-                    <a href="@Url.Action("EliminarServicio", new { id = servicio.IdServicio })" onclick="return confirm('¿Está seguro de que desea eliminar este servicio?');">Eliminar</a>
+                    <a href="@Url.Action("EditarServicio", new { id = servicio.IdServicio })"
+                        class="btn btn-warning">Editar</a>
+
+                    <form action="@Url.Action("EliminarServicio", new { id = servicio.IdServicio })" method="post"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro de que desea eliminar este servicio?');">
+                        <input type="hidden" name="id" value="@servicio.IdServicio" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
+
             </tr>
         }
     </tbody>

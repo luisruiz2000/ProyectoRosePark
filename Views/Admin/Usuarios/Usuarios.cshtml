@@ -40,9 +40,16 @@
                 <td>@user.FechaNacimientoPersona.ToShortDateString()</td>
                 <td>@user.NombreRol</td>
                 <td>
-                    <a href="@Url.Action("EditarUsuario", new { id = user.IdUsuario })">Editar</a> |
-                    <a href="@Url.Action("EliminarUsuario", new { id = user.IdUsuario })" onclick="return confirm('¿Está seguro de que desea eliminar este usuario?');">Eliminar</a>
+                    <a href="@Url.Action("EditarUsuario", new { id = user.IdUsuario })" class="btn btn-warning">Editar</a>
+
+                    <form action="@Url.Action("EliminarUsuario", new { id = user.IdUsuario })" method="post"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro de que desea eliminar este usuario?');">
+                        <input type="hidden" name="id" value="@user.IdUsuario" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
+
             </tr>
         }
     </tbody>

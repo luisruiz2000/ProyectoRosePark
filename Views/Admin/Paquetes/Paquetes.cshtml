@@ -1,10 +1,13 @@
-@model IEnumerable<Paquete>
+@model IEnumerable<RosePark.Models.Paquete>
 
 @{
     Layout = "_AdminLayout";
 }
 
 <h2>Gestión de Paquetes</h2>
+
+<a asp-action="CrearPaquete" class="btn btn-primary">Crear nuevo paquete</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -13,6 +16,8 @@
             <th>Descripción</th>
             <th>Precio Total</th>
             <th>Estado</th>
+            <th>Habitación</th>
+            <th>Servicios</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -25,10 +30,27 @@
                 <td>@paquete.Descripcion</td>
                 <td>@paquete.PrecioTotal.ToString("C")</td>
                 <td>@paquete.Estado</td>
+                <td>@paquete.IdHabitacionNavigation?.NorHabitacion</td>
                 <td>
-                    <a href="@Url.Action("EditarPaquete", new { id = paquete.IdPaquete })">Editar</a> |
-                    <a href="@Url.Action("EliminarPaquete", new { id = paquete.IdPaquete })" onclick="return confirm('¿Está seguro de que desea eliminar este paquete?');">Eliminar</a>
+                    @foreach (var servicio in paquete.PaquetesServicios)
+                    {
+                        <span>@servicio.IdServicioNavigation.NombreServicio</span>
+
+                        <br />
+                    }
                 </td>
+                <td>
+                    <a href="@Url.Action("EditarPaquete", new { id = paquete.IdPaquete })"
+                        class="btn btn-warning">Editar</a>
+
+                    <form action="@Url.Action("EliminarPaquete", new { id = paquete.IdPaquete })" method="post"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro de que desea eliminar este paquete?');">
+                        <input type="hidden" name="id" value="@paquete.IdPaquete" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+
             </tr>
         }
     </tbody>

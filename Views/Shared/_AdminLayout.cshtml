@@ -42,6 +42,8 @@
                 <a class="nav-link" href="/Admin/Usuarios">Gestión de Usuarios</a>
                 <a class="nav-link" href="/Admin/Paquetes">Gestión de Paquetes</a>
                 <a class="nav-link" href="/Admin/Servicios">Gestión de Servicios</a>
+                <a class="nav-link" href="/Admin/TipoHabitaciones">Gestión de Tipos de Habitación</a>
+                <a class="nav-link" href="/Admin/Habitaciones">Gestión de Habitaciones</a>
             </div>
             <form asp-action="Logout" asp-controller="Account" method="post" class="mt-3">
                 <button type="submit" class="btn btn-danger w-100">Cerrar Sesión</button>
@@ -50,6 +52,8 @@
     </div>
     <div class="main-content">
         @RenderBody()
+        @RenderSection("Scripts", required: false)
+
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 </body>

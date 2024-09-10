@@ -13,6 +13,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,25 +24,30 @@
         .container {
             padding: 20px;
         }
+
         h2 {
             margin-bottom: 20px;
         }
+
         h3 {
             margin-top: 20px;
             margin-bottom: 15px;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
-            height: 300px; /* Ajusta la altura según sea necesario */
+            height: 300px;
+            /* Ajusta la altura según sea necesario */
             margin-bottom: 30px;
         }
     </style>
 </head>
+
 <body>
     <div class="container mt-4">
         <h2>Dashboard Administrativo</h2>
-        
+
         <!-- Ocupación de Habitaciones -->
         <div class="card">
             <div class="card-body">
@@ -112,22 +118,25 @@
         });
 
         // Paquetes Populares
-        var paquetesPopularesCtx = document.getElementById('paquetesPopularesChart').getContext('2d');
-        var paquetesPopularesLabels = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.Paquete).ToList()));
-        var paquetesPopularesData = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.CantidadReservas).ToList()));
-        new Chart(paquetesPopularesCtx, {
-            type: 'pie',
-            data: {
-                labels: paquetesPopularesLabels,
-                datasets: [{
-                    label: 'Reservas por Paquete',
-                    data: paquetesPopularesData,
-                    backgroundColor: '#FFCE56'
-                }]
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            var paquetesPopularesCtx = document.getElementById('paquetesPopularesChart').getContext('2d');
+            var paquetesPopularesLabels = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.Paquete).ToList()));
+            var paquetesPopularesData = @Html.Raw(Json.Serialize(paquetesPopulares.Select(p => p.CantidadReservas).ToList()));
+            new Chart(paquetesPopularesCtx, {
+                type: 'pie',
+                data: {
+                    labels: paquetesPopularesLabels,
+                    datasets: [{
+                        label: 'Reservas por Paquete',
+                        data: paquetesPopularesData,
+                        backgroundColor: '#FFCE56'
+                    }]
+                }
+            });
         });
     </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

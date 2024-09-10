@@ -14,11 +14,17 @@ namespace RosePark.Controllers
     public class AdminController : Controller
     {
         private readonly RoseParkDbContext _context;
+        private readonly ILogger<AdminController> _logger;
 
-        public AdminController(RoseParkDbContext context)
+        // Constructor que recibe el contexto y el logger
+        public AdminController(RoseParkDbContext context, ILogger<AdminController> logger)
         {
             _context = context;
+            _logger = logger;
         }
+
+
+
 
         public IActionResult Dashboard()
         {
@@ -303,49 +309,6 @@ namespace RosePark.Controllers
 
 
 
-
-
-
-
-
-        public IActionResult Paquetes()
-        {
-            var paquetes = _context.Paquetes.ToList();
-            return View("Paquetes/Paquetes", paquetes); // Especifica la vista dentro de la carpeta Paquetes
-        }
-
-        public IActionResult EditarPaquete(int id)
-        {
-            var paquete = _context.Paquetes.Find(id);
-            if (paquete == null)
-                return NotFound();
-
-            return View("Paquetes/EditarPaquete", paquete); // Especifica la vista dentro de la carpeta Paquetes
-        }
-
-        [HttpPost]
-        public IActionResult EditarPaquete(Paquete paquete)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Paquetes.Update(paquete);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Paquetes));
-            }
-            return View("Paquetes/EditarPaquete", paquete); // Especifica la vista dentro de la carpeta Paquetes
-        }
-
-        public IActionResult EliminarPaquete(int id)
-        {
-            var paquete = _context.Paquetes.Find(id);
-            if (paquete != null)
-            {
-                _context.Paquetes.Remove(paquete);
-                _context.SaveChanges();
-            }
-            return RedirectToAction(nameof(Paquetes));
-        }
-
         public IActionResult Servicios()
         {
             var servicios = _context.Servicios.ToList();
@@ -382,13 +345,6 @@ namespace RosePark.Controllers
             return View("~/Views/Admin/Servicios/EditarServicio.cshtml", servicio); // Ruta completa de la vista
         }
 
-
-
-
-
-
-
-
         public IActionResult EliminarServicio(int id)
         {
             var servicio = _context.Servicios.Find(id);
@@ -399,5 +355,415 @@ namespace RosePark.Controllers
             }
             return RedirectToAction(nameof(Servicios));
         }
+
+
+        public IActionResult CrearServicio()
+        {
+            return View("~/Views/Admin/Servicios/CrearServicio.cshtml"); // Asegúrate de que esta ruta coincide con la ubicación de la vista
+        }
+
+
+
+        [HttpPost]
+        public IActionResult CrearServicio(Servicio servicio)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Servicios.Add(servicio); // Añadir el nuevo servicio
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Servicios)); // Redirigir a la lista de servicios
+            }
+            return View("~/Views/Admin/Servicios/CrearServicio.cshtml", servicio); // Volver a la vista si hay errores
+        }
+
+
+
+
+
+
+        public IActionResult Paquetes()
+        {
+            // Cargar los paquetes con sus relaciones
+            var paquetes = _context.Paquetes
+                .Include(p => p.IdHabitacionNavigation) // Incluye la relación con Habitaciones
+                .Include(p => p.PaquetesServicios) // Incluye la relación con PaquetesServicios
+                .ThenInclude(ps => ps.IdServicioNavigation) // Incluye los servicios relacionados
+                .ToList();
+
+            return View("Paquetes/Paquetes", paquetes); // Devuelve la vista Paquetes.cshtml con la lista de paquetes
+        }
+
+
+        [HttpGet]
+        public IActionResult EditarPaquete(int id)
+        {
+            var paquete = _context.Paquetes
+                .Include(p => p.PaquetesServicios)
+                .Include(p => p.IdHabitacionNavigation)
+                .FirstOrDefault(p => p.IdPaquete == id);
+
+            if (paquete == null)
+                return NotFound();
+
+            // Cargar todos los servicios en memoria
+            var todosServicios = _context.Servicios.ToList();
+
+            var viewModel = new PaqueteViewModel
+            {
+                IdPaquete = paquete.IdPaquete,
+                NombrePaquete = paquete.NombrePaquete,
+                Descripcion = paquete.Descripcion,
+                PrecioTotal = paquete.PrecioTotal,
+                IdHabitacion = paquete.IdHabitacion.GetValueOrDefault(),
+                Estado = paquete.Estado,
+                Habitaciones = _context.Habitaciones.Select(h => new SelectListItem
+                {
+                    Value = h.IdHabitacion.ToString(),
+                    Text = h.NorHabitacion,
+                    Selected = h.IdHabitacion == paquete.IdHabitacion // Marcar la habitación seleccionada
+                }).ToList(),
+                Servicios = todosServicios.Select(s => new SelectListItem
+                {
+                    Value = s.IdServicio.ToString(),
+                    Text = s.NombreServicio,
+                    Selected = paquete.PaquetesServicios.Any(ps => ps.IdServicio == s.IdServicio) // Marcar servicios seleccionados
+                }).ToList(),
+                ServiciosSeleccionados = paquete.PaquetesServicios.Select(ps => ps.IdServicio).ToList()
+            };
+
+            return View("Paquetes/EditarPaquete", viewModel);
+        }
+
+
+
+
+
+
+
+
+        [HttpPost]
+        public IActionResult EditarPaquete(PaqueteViewModel viewModel)
+        {
+            _logger.LogInformation("Iniciando el método EditarPaquete");
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("El modelo no es válido");
+
+                // Registrar los errores de validación
+                foreach (var modelStateKey in ModelState.Keys)
+                {
+                    var value = ModelState[modelStateKey];
+                    foreach (var error in value.Errors)
+                    {
+                        _logger.LogError("Error en el campo {Key}: {ErrorMessage}", modelStateKey, error.ErrorMessage);
+                    }
+                }
+
+                // Cargar las listas para la vista en caso de error
+                viewModel.Habitaciones = _context.Habitaciones.Select(h => new SelectListItem
+                {
+                    Value = h.IdHabitacion.ToString(),
+                    Text = h.NorHabitacion
+                }).ToList();
+
+                viewModel.Servicios = _context.Servicios.Select(s => new SelectListItem
+                {
+                    Value = s.IdServicio.ToString(),
+                    Text = s.NombreServicio
+                }).ToList();
+
+                return View("Paquetes/EditarPaquete", viewModel);
+            }
+
+            try
+            {
+                var paquete = _context.Paquetes
+                    .Include(p => p.PaquetesServicios)
+                    .FirstOrDefault(p => p.IdPaquete == viewModel.IdPaquete);
+
+                if (paquete == null)
+                {
+                    _logger.LogWarning("No se encontró el paquete con Id {IdPaquete}", viewModel.IdPaquete);
+                    return NotFound();
+                }
+
+                // Actualizar el paquete
+                paquete.NombrePaquete = viewModel.NombrePaquete;
+                paquete.Descripcion = viewModel.Descripcion;
+                paquete.PrecioTotal = viewModel.PrecioTotal;
+                paquete.IdHabitacion = viewModel.IdHabitacion;
+                paquete.Estado = viewModel.Estado;
+
+                // Eliminar servicios existentes asociados con el paquete
+                var serviciosExistentes = _context.PaquetesServicios
+                    .Where(ps => ps.IdPaquete == viewModel.IdPaquete)
+                    .ToList();
+
+                _context.PaquetesServicios.RemoveRange(serviciosExistentes);
+
+                // Verifica si hay servicios seleccionados antes de agregar nuevos
+                if (viewModel.ServiciosSeleccionados != null && viewModel.ServiciosSeleccionados.Count > 0)
+                {
+                    foreach (var idServicio in viewModel.ServiciosSeleccionados)
+                    {
+                        _context.PaquetesServicios.Add(new PaquetesServicio
+                        {
+                            IdPaquete = viewModel.IdPaquete,
+                            IdServicio = idServicio
+                        });
+                    }
+                }
+
+                // Guardar cambios en la base de datos
+                _context.SaveChanges();
+                _logger.LogInformation("Paquete guardado correctamente con Id {IdPaquete}", viewModel.IdPaquete);
+                return RedirectToAction(nameof(Paquetes));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Ocurrió un error al guardar el paquete: {ExceptionMessage}", ex.Message);
+
+                // Cargar listas en caso de excepción
+                viewModel.Habitaciones = _context.Habitaciones.Select(h => new SelectListItem
+                {
+                    Value = h.IdHabitacion.ToString(),
+                    Text = h.NorHabitacion
+                }).ToList();
+
+                viewModel.Servicios = _context.Servicios.Select(s => new SelectListItem
+                {
+                    Value = s.IdServicio.ToString(),
+                    Text = s.NombreServicio
+                }).ToList();
+
+                return View("Paquetes/EditarPaquete", viewModel);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public IActionResult EliminarPaquete(int id)
+        {
+            var paquete = _context.Paquetes.Find(id);
+            if (paquete != null)
+            {
+                _context.Paquetes.Remove(paquete);
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Paquetes));
+        }
+
+
+
+
+
+
+        // GET: TipoHabitaciones
+        public IActionResult TipoHabitaciones()
+        {
+            var tiposHabitaciones = _context.TiposHabitaciones.ToList();
+            return View("TipoHabitaciones/TipoHabitaciones", tiposHabitaciones); // Ajuste para buscar la vista en la carpeta correcta
+        }
+
+        // GET: CrearTipoHabitaciones
+        public IActionResult CrearTipoHabitaciones()
+        {
+            return View("TipoHabitaciones/CrearTipoHabitaciones"); // Ajuste para buscar la vista en la carpeta correcta
+        }
+
+        // POST: CrearTipoHabitaciones
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CrearTipoHabitaciones(TiposHabitacione tipoHabitacion)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(tipoHabitacion);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(TipoHabitaciones));
+            }
+            return View("TipoHabitaciones/CrearTipoHabitaciones", tipoHabitacion); // Ajuste para buscar la vista en la carpeta correcta
+        }
+
+        // GET: EditarTipoHabitaciones/5
+        public async Task<IActionResult> EditarTipoHabitaciones(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tipoHabitacion = await _context.TiposHabitaciones.FindAsync(id);
+            if (tipoHabitacion == null)
+            {
+                return NotFound();
+            }
+            return View("TipoHabitaciones/EditarTipoHabitaciones", tipoHabitacion); // Ajuste para buscar la vista en la carpeta correcta
+        }
+
+        // POST: EditarTipoHabitaciones/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarTipoHabitaciones(int id, TiposHabitacione tipoHabitacion)
+        {
+            if (id != tipoHabitacion.IdTipoHabitacion)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(tipoHabitacion);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!TipoHabitacionExists(tipoHabitacion.IdTipoHabitacion))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(TipoHabitaciones));
+            }
+            return View("TipoHabitaciones/EditarTipoHabitaciones", tipoHabitacion); // Ajuste para buscar la vista en la carpeta correcta
+        }
+
+        // POST: Eliminar (en background)
+        [HttpPost]
+        public async Task<IActionResult> EliminarTipoHabitacion(int id)
+        {
+            var tipoHabitacion = await _context.TiposHabitaciones.FindAsync(id);
+            if (tipoHabitacion != null)
+            {
+                _context.TiposHabitaciones.Remove(tipoHabitacion);
+                await _context.SaveChangesAsync();
+            }
+            return RedirectToAction(nameof(TipoHabitaciones));
+        }
+
+        private bool TipoHabitacionExists(int id)
+        {
+            return _context.TiposHabitaciones.Any(e => e.IdTipoHabitacion == id);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        // GET: Habitaciones
+        public IActionResult Habitaciones()
+        {
+            var habitaciones = _context.Habitaciones.Include(h => h.IdTipoHabitacionNavigation).ToList();
+            return View("Habitaciones/Habitaciones", habitaciones);
+        }
+
+        // GET: CrearHabitaciones
+        public IActionResult CrearHabitaciones()
+        {
+            ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre");
+            return View("Habitaciones/CrearHabitaciones");
+        }
+
+        // POST: CrearHabitaciones
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CrearHabitaciones(Habitacione habitacion)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(habitacion);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Habitaciones));
+            }
+            ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre");
+            return View("Habitaciones/CrearHabitaciones", habitacion);
+        }
+
+        // GET: EditarHabitaciones/5
+        public async Task<IActionResult> EditarHabitaciones(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var habitacion = await _context.Habitaciones.FindAsync(id);
+            if (habitacion == null)
+            {
+                return NotFound();
+            }
+            ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre", habitacion.IdTipoHabitacion);
+            return View("Habitaciones/EditarHabitaciones", habitacion);
+        }
+
+        // POST: EditarHabitaciones/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditarHabitaciones(int id, Habitacione habitacion)
+        {
+            if (id != habitacion.IdHabitacion)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(habitacion);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.Habitaciones.Any(h => h.IdHabitacion == id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Habitaciones));
+            }
+            ViewBag.TiposHabitacion = new SelectList(_context.TiposHabitaciones, "IdTipoHabitacion", "Nombre", habitacion.IdTipoHabitacion);
+            return View("Habitaciones/EditarHabitaciones", habitacion);
+        }
+
+
+
+
+
     }
 }

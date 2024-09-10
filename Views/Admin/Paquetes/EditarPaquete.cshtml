@@ -1,32 +1,78 @@
-@model Paquete
-
+@model RosePark.Models.ViewModels.PaqueteViewModel;
 @{
-    @using RosePark.Models.ViewModels
     Layout = "_AdminLayout";
 }
 
-<h2>Editar Paquete</h2>
+<form asp-action="EditarPaquete" method="post" class="form-horizontal">
 
-<form asp-action="EditarPaquete">
-    <div class="form-group">
-        <label asp-for="NombrePaquete" class="form-label"></label>
-        <input asp-for="NombrePaquete" class="form-control" />
-        <span asp-validation-for="NombrePaquete" class="text-danger"></span>
+    <input type="hidden" name="IdPaquete" value="@Model.IdPaquete" />
+
+
+    <div class="form-group row">
+        <label for="NombrePaquete" class="col-sm-2 col-form-label">Nombre del Paquete</label>
+        <div class="col-sm-10">
+            <input type="text" id="NombrePaquete" name="NombrePaquete" value="@Model.NombrePaquete"
+                class="form-control" />
+            <span asp-validation-for="NombrePaquete" class="text-danger"></span>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Descripcion" class="form-label"></label>
-        <input asp-for="Descripcion" class="form-control" />
-        <span asp-validation-for="Descripcion" class="text-danger"></span>
+
+    <div class="form-group row">
+        <label for="Descripcion" class="col-sm-2 col-form-label">Descripción</label>
+        <div class="col-sm-10">
+            <textarea id="Descripcion" name="Descripcion" class="form-control">@Model.Descripcion</textarea>
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="PrecioTotal" class="form-label"></label>
-        <input asp-for="PrecioTotal" class="form-control" />
-        <span asp-validation-for="PrecioTotal" class="text-danger"></span>
+
+    <div class="form-group row">
+        <label for="PrecioTotal" class="col-sm-2 col-form-label">Precio Total</label>
+        <div class="col-sm-10">
+            <input type="number" id="PrecioTotal" name="PrecioTotal" value="@Model.PrecioTotal" class="form-control" />
+            <span asp-validation-for="PrecioTotal" class="text-danger"></span>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Estado" class="form-label"></label>
-        <input asp-for="Estado" class="form-control" />
-        <span asp-validation-for="Estado" class="text-danger"></span>
+
+    <div class="form-group row">
+        <label for="IdHabitacion" class="col-sm-2 col-form-label">Habitación</label>
+        <select id="IdHabitacion" name="IdHabitacion" class="form-control">
+            @foreach (var habitacion in Model.Habitaciones)
+            {
+                <option value="@habitacion.Value" selected="@(habitacion.Value == Model.IdHabitacion.ToString())">
+                    @habitacion.Text</option>
+            }
+        </select>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Servicios</label>
+        <div class="col-sm-10">
+            @foreach (var servicio in Model.Servicios)
+            {
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="servicio_@servicio.Value"
+                        name="ServiciosSeleccionados" value="@servicio.Value"
+                    @(Model.ServiciosSeleccionados.Contains(int.Parse(servicio.Value)) ? "checked" : "") />
+                    <label class="form-check-label" for="servicio_@servicio.Value">@servicio.Text</label>
+                </div>
+            }
+
+            <span asp-validation-for="ServiciosSeleccionados" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="Estado" class="col-sm-2 col-form-label">Estado</label>
+        <select id="Estado" name="Estado" class="form-control">
+            <option value="Activo" selected="@(Model.Estado == "Activo")">Activo</option>
+            <option value="Inactivo" selected="@(Model.Estado == "Inactivo")">Inactivo</option>
+        </select>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" class="btn btn-primary">Guardar Paquete</button>
+        </div>
+    </div>
 </form>

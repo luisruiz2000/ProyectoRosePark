@@ -194,6 +194,9 @@ namespace RosePark.Controllers
 
             return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
         }
+
+
+        
         public IActionResult ConfirmacionReserva(int id)
         {
             var reserva = _context.Reservas

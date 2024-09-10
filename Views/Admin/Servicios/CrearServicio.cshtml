@@ -1,0 +1,35 @@
+@model RosePark.Models.Servicio
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>Crear Nuevo Servicio</h2>
+
+<form asp-action="CrearServicio" method="post">
+    <div class="form-group">
+        <label asp-for="NombreServicio" class="control-label"></label>
+        <input asp-for="NombreServicio" class="form-control" />
+        <span asp-validation-for="NombreServicio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="DescripcionServicio" class="control-label"></label>
+        <input asp-for="DescripcionServicio" class="form-control" />
+        <span asp-validation-for="DescripcionServicio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PrecioServicio" class="control-label"></label>
+        <input asp-for="PrecioServicio" class="form-control" />
+        <span asp-validation-for="PrecioServicio" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EstadoServicio" class="control-label"></label>
+        <input asp-for="EstadoServicio" class="form-control" />
+        <span asp-validation-for="EstadoServicio" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Crear</button>
+</form>
