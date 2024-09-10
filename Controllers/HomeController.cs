@@ -125,7 +125,7 @@ namespace RosePark.Controllers
                 TempData["MetodoPago"] = metodoPago;
 
                 // Redirigir a la página de inicio de sesión
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             // Continuar con la lógica de confirmación de la reserva...
