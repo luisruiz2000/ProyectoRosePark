@@ -4,74 +4,6 @@
     Layout = "_Layout";
 }
 
-<<<<<<< HEAD
-<form asp-action="Register" method="post">
-    <div class="form-group">
-        <label for="CorreoUsuario">Correo Electrónico</label>
-        <input asp-for="CorreoUsuario" class="form-control" />
-        <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="ClaveUsuario">Contraseña</label>
-        <input asp-for="ClaveUsuario" type="password" class="form-control" />
-        <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="NombrePersona">Nombre</label>
-        <input asp-for="NombrePersona" class="form-control" />
-        <span asp-validation-for="NombrePersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="ApellidosPersona">Apellidos</label>
-        <input asp-for="ApellidosPersona" class="form-control" />
-        <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="TipoDocumentoPersona">Tipo de Documento</label>
-        <select asp-for="TipoDocumentoPersona" class="form-control">
-            <option value="CC">Cédula de Ciudadanía</option>
-            <option value="TI">Tarjeta de Identidad</option>
-            <option value="CE">Cédula de Extranjería</option>
-            <option value="PB">Pasaporte</option>
-            <option value="PEP">Permiso Especial de Permanencia</option>
-        </select>
-        <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="NroDocumentoPersona">Número de Documento</label>
-        <input asp-for="NroDocumentoPersona" class="form-control" />
-        <span asp-validation-for="NroDocumentoPersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="EdadPersona">Edad</label>
-        <input asp-for="EdadPersona" class="form-control" />
-        <span asp-validation-for="EdadPersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="CelularPersona">Celular</label>
-        <input asp-for="CelularPersona" class="form-control" />
-        <span asp-validation-for="CelularPersona" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label for="FechaNacimientoPersona">Fecha de Nacimiento</label>
-        <input asp-for="FechaNacimientoPersona" type="date" class="form-control" />
-        <span asp-validation-for="FechaNacimientoPersona" class="text-danger"></span>
-    </div>
-
-    <!-- Campo oculto para IdRol -->
-    <input type="hidden" asp-for="IdRol" value="1" />
-
-    <button type="submit" class="btn btn-primary">Registrar</button>
-</form>
-=======
 <style>
     .cont {
         margin-top: 2rem;
@@ -124,83 +56,90 @@
 </style>
 
 <div class="cont">
-
     <form id="registerForm" asp-action="Register" method="post">
         <h2 class="mb-2">@ViewData["Title"]</h2>
         <center>
             <p class="message">Crea tu cuenta y únete a nuestra comunidad. Completa el registro para disfrutar de
-                todos
-                nuestros servicios y
-                ofertas exclusivas. ¡Estamos emocionados de tenerte con nosotros!</p>
+                todos nuestros servicios y ofertas exclusivas. ¡Estamos emocionados de tenerte con nosotros!</p>
         </center>
-        <hr>
-        <div class="register">
 
+        <hr>
+
+        <div class="register">
+            <!-- Aquí van los campos del formulario -->
             <div class="mb-3">
-                <label asp-for="Nombres" class="form-label">Nombres</label>
-                <input asp-for="Nombres" class="form-control" />
-                <span asp-validation-for="Nombres" class="text-danger"></span>
+                <label class="form-label" for="NombrePersona">Nombre</label>
+                <input asp-for="NombrePersona" class="form-control" />
+                <span asp-validation-for="NombrePersona" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <label asp-for="Apellidos" class="form-label">Apellidos</label>
-                <input asp-for="Apellidos" class="form-control" />
-                <span asp-validation-for="Apellidos" class="text-danger"></span>
+
+            <div class="form-group">
+                <label class="form-label" for="ApellidosPersona">Apellidos</label>
+                <input asp-for="ApellidosPersona" class="form-control" />
+                <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <label asp-for="TipoDocumento" class="form-label">Tipo de Documento</label>
-                <input asp-for="TipoDocumento" class="form-control" />
-                <span asp-validation-for="TipoDocumento" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="NroDocumento" class="form-label">Número de Documento</label>
-                <input asp-for="NroDocumento" class="form-control" />
-                <span asp-validation-for="NroDocumento" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Edad" type="number" class="form-label">Edad</label>
-                <input asp-for="Edad" class="form-control" />
-                <span asp-validation-for="Edad" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Celular" type="tel" class="form-label">Celular</label>
-                <input asp-for="Celular" class="form-control" />
-                <span asp-validation-for="Celular" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="CorreoUsuario" class="form-label">Correo Electrónico</label>
+
+            <div class="form-group">
+                <label class="form-label" for="CorreoUsuario">Correo Electrónico</label>
                 <input asp-for="CorreoUsuario" class="form-control" />
                 <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <label asp-for="ClaveUsuario" class="form-label">Crea una Contraseña</label>
+
+            <div class="form-group">
+                <label class="form-label" for="ClaveUsuario">Contraseña</label>
                 <input asp-for="ClaveUsuario" type="password" class="form-control" />
                 <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
             </div>
+
+            <!-- Otros campos como apellidos, correo, clave, etc. -->
+
             <div class="mb-3">
-                <label asp-for="ConfirmarClave" class="form-label">Confirmar Contraseña</label>
-                <input asp-for="ConfirmarClave" type="password" class="form-control" />
-                <span asp-validation-for="ConfirmarClave" class="text-danger"></span>
+                <label for="TipoDocumentoPersona">Tipo de Documento</label>
+                <select asp-for="TipoDocumentoPersona" class="form-control">
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                    <option value="PB">Pasaporte</option>
+                    <option value="PEP">Permiso Especial de Permanencia</option>
+                </select>
+                <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
             </div>
-            <div class="mb-3">
-                <label asp-for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                <input asp-for="FechaNacimiento" type="date" class="form-control" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+
+            <div class="form-group">
+                <label class="form-label" for="NroDocumentoPersona">Número de Documento</label>
+                <input asp-for="NroDocumentoPersona" class="form-control" />
+                <span asp-validation-for="NroDocumentoPersona" class="text-danger"></span>
             </div>
-            @* <a asp-action="Login" class="btn btn-link">Iniciar Sesión</a> *@
+
+            <div class="form-group">
+                <label class="form-label" for="EdadPersona">Edad</label>
+                <input asp-for="EdadPersona" class="form-control" />
+                <span asp-validation-for="EdadPersona" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="CelularPersona">Celular</label>
+                <input asp-for="CelularPersona" class="form-control" />
+                <span asp-validation-for="CelularPersona" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="FechaNacimientoPersona">Fecha de Nacimiento</label>
+                <input asp-for="FechaNacimientoPersona" type="date" class="form-control" />
+                <span asp-validation-for="FechaNacimientoPersona" class="text-danger"></span>
+            </div>
+
+            <!-- Campo oculto para IdRol -->
+            <input type="hidden" asp-for="IdRol" value="1" />
         </div>
+
         <button type="submit" id="registerButton" class="btn btn-regiter btn-primary text-center">Registrarse</button>
     </form>
 </div>
 
 <script>
     document.getElementById('registerForm').addEventListener('submit', function (event) {
-        event.preventDefault(); // Evita el envío automático del formulario
-
-        // Mostrar la alerta
-        alert('Registro completado, ahora puedes iniciar sesion');
-
-        // Redirigir a la página de inicio de sesión después de que el usuario cierre la alerta
-        window.location.href = 'http://localhost:5038/Account/Login';
+        event.preventDefault();
+        alert('Registro completado, ahora puedes iniciar sesión');
     });
 </script>
->>>>>>> 818f66fd21b0e105c722905c53ea2c099f4271c9
