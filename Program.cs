@@ -3,7 +3,6 @@ using RosePark.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -34,7 +33,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
@@ -43,11 +46,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseDeveloperExceptionPage();
-app.UseRouting();
-
 // Habilitar el uso de sesiones
 app.UseSession();
+
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();

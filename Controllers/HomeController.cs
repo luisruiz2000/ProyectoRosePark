@@ -77,6 +77,10 @@ namespace RosePark.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+
+
+        
+
         public IActionResult ResumenReserva(int id)
         {
             var paquete = _context.Paquetes
@@ -125,7 +129,7 @@ namespace RosePark.Controllers
                 TempData["MetodoPago"] = metodoPago;
 
                 // Redirigir a la página de inicio de sesión
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Login", "Account");
             }
 
             // Continuar con la lógica de confirmación de la reserva...
@@ -196,7 +200,7 @@ namespace RosePark.Controllers
         }
 
 
-        
+
         public IActionResult ConfirmacionReserva(int id)
         {
             var reserva = _context.Reservas

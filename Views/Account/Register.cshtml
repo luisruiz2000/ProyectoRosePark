@@ -1,64 +1,72 @@
-@model RosePark.Models.RegisterViewModel
+@model RosePark.Models.ViewModels.UsuarioViewModel
 
 @{
-    ViewData["Title"] = "Registrarse";
+    Layout = "_Layout";
 }
 
-<div class="container">
-    <h2>@ViewData["Title"]</h2>
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label for="CorreoUsuario">Correo Electrónico</label>
+        <input asp-for="CorreoUsuario" class="form-control" />
+        <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
+    </div>
 
-    <form asp-action="Register" method="post">
-        <div class="mb-3">
-            <label asp-for="CorreoUsuario" class="form-label"></label>
-            <input asp-for="CorreoUsuario" class="form-control" />
-            <span asp-validation-for="CorreoUsuario" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="ClaveUsuario" class="form-label"></label>
-            <input asp-for="ClaveUsuario" type="password" class="form-control" />
-            <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="ConfirmarClave" class="form-label"></label>
-            <input asp-for="ConfirmarClave" type="password" class="form-control" />
-            <span asp-validation-for="ConfirmarClave" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Nombres" class="form-label"></label>
-            <input asp-for="Nombres" class="form-control" />
-            <span asp-validation-for="Nombres" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Apellidos" class="form-label"></label>
-            <input asp-for="Apellidos" class="form-control" />
-            <span asp-validation-for="Apellidos" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="TipoDocumento" class="form-label"></label>
-            <input asp-for="TipoDocumento" class="form-control" />
-            <span asp-validation-for="TipoDocumento" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="NroDocumento" class="form-label"></label>
-            <input asp-for="NroDocumento" class="form-control" />
-            <span asp-validation-for="NroDocumento" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Edad" class="form-label"></label>
-            <input asp-for="Edad" class="form-control" />
-            <span asp-validation-for="Edad" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="Celular" class="form-label"></label>
-            <input asp-for="Celular" class="form-control" />
-            <span asp-validation-for="Celular" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <label asp-for="FechaNacimiento" class="form-label"></label>
-            <input asp-for="FechaNacimiento" type="date" class="form-control" />
-            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrarse</button>
-        <a asp-action="Login" class="btn btn-link">Iniciar Sesión</a>
-    </form>
-</div>
+    <div class="form-group">
+        <label for="ClaveUsuario">Contraseña</label>
+        <input asp-for="ClaveUsuario" type="password" class="form-control" />
+        <span asp-validation-for="ClaveUsuario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="NombrePersona">Nombre</label>
+        <input asp-for="NombrePersona" class="form-control" />
+        <span asp-validation-for="NombrePersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="ApellidosPersona">Apellidos</label>
+        <input asp-for="ApellidosPersona" class="form-control" />
+        <span asp-validation-for="ApellidosPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="TipoDocumentoPersona">Tipo de Documento</label>
+        <select asp-for="TipoDocumentoPersona" class="form-control">
+            <option value="CC">Cédula de Ciudadanía</option>
+            <option value="TI">Tarjeta de Identidad</option>
+            <option value="CE">Cédula de Extranjería</option>
+            <option value="PB">Pasaporte</option>
+            <option value="PEP">Permiso Especial de Permanencia</option>
+        </select>
+        <span asp-validation-for="TipoDocumentoPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="NroDocumentoPersona">Número de Documento</label>
+        <input asp-for="NroDocumentoPersona" class="form-control" />
+        <span asp-validation-for="NroDocumentoPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="EdadPersona">Edad</label>
+        <input asp-for="EdadPersona" class="form-control" />
+        <span asp-validation-for="EdadPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="CelularPersona">Celular</label>
+        <input asp-for="CelularPersona" class="form-control" />
+        <span asp-validation-for="CelularPersona" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="FechaNacimientoPersona">Fecha de Nacimiento</label>
+        <input asp-for="FechaNacimientoPersona" type="date" class="form-control" />
+        <span asp-validation-for="FechaNacimientoPersona" class="text-danger"></span>
+    </div>
+
+    <!-- Campo oculto para IdRol -->
+    <input type="hidden" asp-for="IdRol" value="1" />
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
