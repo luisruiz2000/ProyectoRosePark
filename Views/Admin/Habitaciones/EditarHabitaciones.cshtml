@@ -21,24 +21,22 @@
         <input asp-for="Descripcion" class="form-control" />
         <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
-        
-        <div class="form-group">
-        <label asp-for="EstadoHabitacion" class="control-label">Estado de la habitación</label>
+
+    <div class="form-group">
+        <label asp-for="EstadoHabitacion" class="control-label"></label>
         <select asp-for="EstadoHabitacion" class="form-control">
-            <option value="Disponible">Disponible</option>
-            <option value="Ocupada">Ocupada</option>
+            @foreach (var estado in Enum.GetValues(typeof(RosePark.Models.Habitacione.EstadoHabitacionEnum)))
+            {
+                <option value="@estado">@estado</option>
+            }
         </select>
-        <span asp-validation-for="EstadoHabitacion" class="text-danger"></span>
     </div>
+
 
     <div class="form-group">
         <label asp-for="PrecioHabitacion" class="control-label"></label>
         <input asp-for="PrecioHabitacion" class="form-control" />
         <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="IdTipoHabitacion" class="control-label"></label>
-        <select asp-for="IdTipoHabitacion" class="form-control" asp-items="ViewBag.TiposHabitacion"></select>
     </div>
     <div class="form-group">
         <input type="submit" value="Guardar" class="btn btn-primary" />

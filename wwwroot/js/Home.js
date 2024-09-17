@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Obtener las referencias a los inputs de fechas
     const checkinDate = document.getElementById('checkinDate');
     const checkoutDate = document.getElementById('checkoutDate');
@@ -8,32 +8,37 @@ document.addEventListener('DOMContentLoaded', function() {
     checkinDate.setAttribute('min', today);
     checkoutDate.setAttribute('min', today);
 
-    // Evento para cuando se cambia la fecha de check-in
-    checkinDate.addEventListener('change', function() {
+    // Función para actualizar las fechas mínimas
+    function updateMinCheckoutDate() {
         const checkinValue = checkinDate.value;
-        const checkoutValue = checkoutDate.value;
+        if (checkinValue) {
+            const minCheckoutDate = new Date(checkinValue);
+            minCheckoutDate.setDate(minCheckoutDate.getDate() + 1); // Añadir un día
+            checkoutDate.setAttribute('min', minCheckoutDate.toISOString().split('T')[0]);
 
-        // Establecer la fecha mínima de check-out como la fecha seleccionada en check-in
-        checkoutDate.setAttribute('min', checkinValue);
+            // Si la fecha de check-out es antes de la nueva fecha mínima, actualizarla
+            if (checkoutDate.value && checkoutDate.value < minCheckoutDate.toISOString().split('T')[0]) {
+                checkoutDate.value = minCheckoutDate.toISOString().split('T')[0];
+            }
+        }
+    }
 
-        // Asegurarse de que la fecha de check-out no sea menor que la de check-in
-        if (checkoutValue && checkoutValue < checkinValue) {
-            alert('La fecha de check-out no puede ser anterior a la de check-in');
-            checkoutDate.value = checkinValue;
+    // Evento para cuando se cambia la fecha de check-in
+    checkinDate.addEventListener('change', function () {
+        updateMinCheckoutDate();
+        // Si la fecha de check-out es antes de la fecha de check-in, actualizarla
+        if (checkoutDate.value && checkoutDate.value <= checkinDate.value) {
+            alert('La fecha de check-out debe ser al menos un día después de la fecha de check-in.');
+            checkoutDate.value = '';
         }
     });
 
     // Evento para cuando se cambia la fecha de check-out
-    checkoutDate.addEventListener('change', function() {
-        const checkoutValue = checkoutDate.value;
-
+    checkoutDate.addEventListener('change', function () {
         // Asegurarse de que la fecha de check-out no sea menor que la de check-in
-        if (checkinDate.value && checkoutValue < checkinDate.value) {
-            alert('La fecha de check-out no puede ser anterior a la de check-in');
-            checkoutDate.value = checkinDate.value;
+        if (checkinDate.value && checkoutDate.value <= checkinDate.value) {
+            alert('La fecha de check-out debe ser al menos un día después de la fecha de check-in.');
+            checkoutDate.value = '';
         }
-
-        // Establecer la fecha máxima de check-in como la fecha seleccionada en check-out
-        checkinDate.setAttribute('max', checkoutValue);
     });
 });

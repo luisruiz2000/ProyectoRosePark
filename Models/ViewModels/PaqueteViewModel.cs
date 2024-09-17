@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using RosePark.Models; // Asegúrate de importar el espacio de nombres donde está definido el Enum
 
 namespace RosePark.Models.ViewModels
 {
@@ -13,13 +14,11 @@ namespace RosePark.Models.ViewModels
         [Required(ErrorMessage = "La descripción es obligatoria.")]
         public string Descripcion { get; set; }
 
-        [Required(ErrorMessage = "El precio total es obligatorio.")]
-        public decimal PrecioTotal { get; set; }
-
         [Required(ErrorMessage = "Debe seleccionar una habitación.")]
         public int IdHabitacion { get; set; }
 
-        public string Estado { get; set; }
+        [Required(ErrorMessage = "Debe seleccionar el estado del paquete.")]
+        public Paquete.EstadoEnum Estado { get; set; } // Cambiado a Enum
 
         public List<SelectListItem> Habitaciones { get; set; }
 
@@ -31,6 +30,8 @@ namespace RosePark.Models.ViewModels
         // Propiedades no obligatorias usadas en Dashboard
         public string Paquete { get; set; }
         public int? CantidadReservas { get; set; }
-    }
+        // Nueva propiedad para la URL de la imagen de la habitación
+        public string ImagenUrl { get; set; } // Asegúrate de asignar esta propiedad cuando cargues los datos
 
+    }
 }

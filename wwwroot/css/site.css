@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: #ccc;
+  background-color: #fff;
 }
 
 .header {}
@@ -20,7 +20,6 @@ body {
 .nav-link {
   color: black !important;
   cursor: pointer;
-  font-weight: 900;
   letter-spacing: .7px;
 }
 
@@ -90,12 +89,6 @@ body {
   object-fit: cover;
   border-radius: 25px;
   margin-right: 2rem;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.626);
-  border-radius: 50%;
 }
 
 

@@ -17,7 +17,6 @@
             <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
             <th>@Html.DisplayNameFor(model => model.EstadoHabitacion)</th>
             <th>@Html.DisplayNameFor(model => model.PrecioHabitacion)</th>
-            <th>@Html.DisplayNameFor(model => model.IdTipoHabitacionNavigation.Nombre)</th>
             <th></th>
         </tr>
     </thead>
@@ -29,7 +28,6 @@
                 <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
                 <td>@Html.DisplayFor(modelItem => item.EstadoHabitacion)</td>
                 <td>@Html.DisplayFor(modelItem => item.PrecioHabitacion)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdTipoHabitacionNavigation.Nombre)</td>
                 <td>
                     <a href="@Url.Action("EditarHabitaciones", new { id = item.IdHabitacion })"
                         class="btn btn-warning">Editar</a>

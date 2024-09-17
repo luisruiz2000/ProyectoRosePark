@@ -5,15 +5,20 @@ namespace RosePark.Models;
 
 public partial class Paquete
 {
+    public enum EstadoEnum
+    {
+        Inactivo = 0,
+        Activo = 1
+    }
+
     public int IdPaquete { get; set; }
 
     public string NombrePaquete { get; set; } = null!;
 
     public string Descripcion { get; set; } = null!;
 
-    public decimal PrecioTotal { get; set; }
 
-    public string Estado { get; set; } = null!;
+    public EstadoEnum Estado { get; set; }
 
     public int? IdHabitacion { get; set; }
 

@@ -35,7 +35,6 @@ public partial class RoseParkDbContext : DbContext
 
     public virtual DbSet<Servicio> Servicios { get; set; }
 
-    public virtual DbSet<TiposHabitacione> TiposHabitaciones { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
@@ -60,10 +59,6 @@ public partial class RoseParkDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.PrecioHabitacion).HasColumnType("decimal(10, 2)");
-
-            entity.HasOne(d => d.IdTipoHabitacionNavigation).WithMany(p => p.Habitaciones)
-                .HasForeignKey(d => d.IdTipoHabitacion)
-                .HasConstraintName("FK__Habitacio__IdTip__40C49C62");
         });
 
         modelBuilder.Entity<Paquete>(entity =>
@@ -79,7 +74,6 @@ public partial class RoseParkDbContext : DbContext
             entity.Property(e => e.NombrePaquete)
                 .HasMaxLength(100)
                 .IsUnicode(false);
-            entity.Property(e => e.PrecioTotal).HasColumnType("decimal(10, 2)");
 
             entity.HasOne(d => d.IdHabitacionNavigation).WithMany(p => p.Paquetes)
                 .HasForeignKey(d => d.IdHabitacion)
@@ -203,9 +197,6 @@ public partial class RoseParkDbContext : DbContext
         {
             entity.HasKey(e => e.IdServicio).HasName("PK__Servicio__2DCCF9A2D071E765");
 
-            entity.Property(e => e.DescripcionServicio)
-                .HasMaxLength(500)
-                .IsUnicode(false);
             entity.Property(e => e.EstadoServicio)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -213,18 +204,6 @@ public partial class RoseParkDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.PrecioServicio).HasColumnType("decimal(10, 2)");
-        });
-
-        modelBuilder.Entity<TiposHabitacione>(entity =>
-        {
-            entity.HasKey(e => e.IdTipoHabitacion).HasName("PK__TipoHabi__AB75E87CE4CA9061");
-
-            entity.Property(e => e.Descripcion)
-                .HasMaxLength(500)
-                .IsUnicode(false);
-            entity.Property(e => e.Nombre)
-                .HasMaxLength(50)
-                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Usuario>(entity =>

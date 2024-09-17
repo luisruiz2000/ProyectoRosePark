@@ -1,23 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace RosePark.Models;
-
-public partial class Habitacione
+﻿namespace RosePark.Models
 {
-    public int IdHabitacion { get; set; }
+    public partial class Habitacione
+    {
+        public enum EstadoHabitacionEnum
+        {
+            Disponible,
+            Mantenimiento
+        }
 
-    public string NorHabitacion { get; set; } = null!;
+        public int IdHabitacion { get; set; }
 
-    public string Descripcion { get; set; } = null!;
+        public string NorHabitacion { get; set; } = null!;
 
-    public string EstadoHabitacion { get; set; } = null!;
+        public string Descripcion { get; set; } = null!;
 
-    public decimal PrecioHabitacion { get; set; }
+        public EstadoHabitacionEnum EstadoHabitacion { get; set; }
 
-    public int? IdTipoHabitacion { get; set; }
+        public decimal PrecioHabitacion { get; set; }
 
-    public virtual TiposHabitacione? IdTipoHabitacionNavigation { get; set; }
+        // Asegúrate de tener esta propiedad en la clase
+        public string ImagenUrl { get; set; } = null!;
 
-    public virtual ICollection<Paquete> Paquetes { get; set; } = new List<Paquete>();
+        public virtual ICollection<Paquete> Paquetes { get; set; } = new List<Paquete>();
+    }
 }
