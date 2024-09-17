@@ -1,4 +1,7 @@
 appsettings.json
 
-Bin/
-Obj/
+# Carpetas de compilación
+bin/
+obj/
+
+.fake

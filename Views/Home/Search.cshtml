@@ -8,63 +8,30 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Paquetes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body>
 
-    @*
-    <section class="buscador container-fluid d-flex mt-5">
-        <form asp-action="Search" asp-controller="Home" method="post"
-            class="d-flex justify-content-evenly align-items-end formBuscador">
-            <div class="row">
-                <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
-                <input type="date" name="checkin_date" id="checkin_date" class="form-control" value="@checkinDate"
-                    required>
-            </div>
+    <section class="container">
+        <h2 class="mb-5 text-center">Resultados de Disponibilidad</h2>
 
-            <div class="row">
-                <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
-                <input type="date" name="checkout_date" id="checkout_date" class="form-control" value="@checkoutDate"
-                    required>
-            </div>
-
-            <div class="row">
-                <label for="numeroPersonas" class="font-weight-bold text-black">Número de Personas</label>
-                <select name="numeroPersonas" id="numeroPersonas" class="form-control">
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary btnBuscador">Buscar</button>
-        </form>
-
-    </section>
-    *@
-
-    <section class="container ">
-        <h2>Resultados de Disponibilidad</h2>
-
-        <div class="row">
+        <div class="row row-cols-4">
             @if (Model != null && Model.Any())
             {
                 @foreach (var paquete in Model)
                 {
-                    <div class="col-md-4 mb-4">
+                    <div class="col d-flex justify-content-center mb-5">
                         <div class="card" style="width: 18rem;">
-                            <img src="../img/img_1.jpg" class="card-img-top" alt="Imagen del Paquete">
+                            <img src="@paquete.IdHabitacionNavigation?.ImagenUrl" class="card-img-top" alt="Imagen de la Habitación">
                             <div class="card-body">
                                 <h5 class="card-title">@paquete.NombrePaquete</h5>
                                 <p class="card-text">@paquete.Descripcion</p>
                                 <p><strong>Habitación:</strong> @paquete.IdHabitacionNavigation?.NorHabitacion</p>
+                                <p><strong>Precio base:</strong> $@String.Format("{0:N0}", @paquete.IdHabitacionNavigation.PrecioHabitacion)</p> <!-- Mostrar el precio base -->
                                 <p><strong>Servicios incluidos:</strong></p>
                                 <ul>
                                     @foreach (var servicio in paquete.PaquetesServicios)
@@ -72,9 +39,7 @@
                                         <li>@servicio.IdServicioNavigation.NombreServicio</li>
                                     }
                                 </ul>
-                                <p><strong>Precio Total:</strong> $@paquete.PrecioTotal</p>
-                                <a href="@Url.Action("ResumenReserva", "Home", new { id = paquete.IdPaquete })"
-                                    class="btn btn-primary">
+                                <a href="@Url.Action("ResumenReserva", "Home", new { id = paquete.IdPaquete })" class="btn btn-primary">
                                     Reservar
                                 </a>
                             </div>
@@ -92,5 +57,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
     <script src="/js/Home.js"></script>
 </body>
-
 </html>

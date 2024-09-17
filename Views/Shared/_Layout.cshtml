@@ -28,16 +28,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Paquetes", "Home")">Paquetes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">Servicios</a>
+                        <a class="nav-link active" aria-current="page" href="@Url.Action("Servicios", "Home")">Servicios</a>
                     </li>
                 </ul>
             </div>
@@ -51,8 +45,6 @@
                         @User.Identity.Name
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="#">Gestionar Reservas</a></li>
-                        <li><a class="dropdown-item" href="#">Perfil</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -71,7 +63,7 @@
                     onclick="location.href='@Url.Action("Login", "Account", new { returnUrl = HttpContextAccessor.HttpContext.Request.Path })'">Iniciar
                     Sesión</button>
                 <button class="btn btn-primary btnNav"
-                    onclick="location.href='@Url.Action("Register", "Home")'">Registrarse</button>
+                    onclick="location.href='@Url.Action("Register", "Account")'">Registrarse</button>
             }
         </div>
     </nav>

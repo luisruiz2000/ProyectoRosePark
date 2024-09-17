@@ -37,6 +37,54 @@
       "PackagePath": "staticwebassets\\img\\4.webp"
     },
     {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Banner1.jpg",
+      "PackagePath": "staticwebassets\\img\\Banner1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Banner2.jpg",
+      "PackagePath": "staticwebassets\\img\\Banner2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Banner3.jpg",
+      "PackagePath": "staticwebassets\\img\\Banner3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Banner4.jpg",
+      "PackagePath": "staticwebassets\\img\\Banner4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Banner5.jpg",
+      "PackagePath": "staticwebassets\\img\\Banner5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Habitaciones\\HabitacionCasaDelArbol.jpg",
+      "PackagePath": "staticwebassets\\img\\Habitaciones\\HabitacionCasaDelArbol.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Habitaciones\\HabitacionDesierto.jpg",
+      "PackagePath": "staticwebassets\\img\\Habitaciones\\HabitacionDesierto.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Habitaciones\\HabitacionDomo.jpg",
+      "PackagePath": "staticwebassets\\img\\Habitaciones\\HabitacionDomo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Habitaciones\\HabitacionLago.jpg",
+      "PackagePath": "staticwebassets\\img\\Habitaciones\\HabitacionLago.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Habitaciones\\HabitacionMontaña.jpg",
+      "PackagePath": "staticwebassets\\img\\Habitaciones\\HabitacionMontaña.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Iconos\\comprobar.png",
+      "PackagePath": "staticwebassets\\img\\Iconos\\comprobar.png"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\ResumenReserva.jpg",
+      "PackagePath": "staticwebassets\\img\\ResumenReserva.jpg"
+    },
+    {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\RoseParkBlanco.png",
       "PackagePath": "staticwebassets\\img\\RoseParkBlanco.png"
     },
@@ -79,6 +127,14 @@
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\image_7.jpg",
       "PackagePath": "staticwebassets\\img\\image_7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\imgLogin.jpeg",
+      "PackagePath": "staticwebassets\\img\\imgLogin.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\imgRegister.jpeg",
+      "PackagePath": "staticwebassets\\img\\imgRegister.jpeg"
     },
     {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\img_1.jpg",

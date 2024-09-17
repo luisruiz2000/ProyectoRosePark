@@ -1,18 +1,16 @@
 body {
   margin: 0;
-  background-color: #ccc;
+  background-color: #fff;
 }
 
-.header {
-  
-}
+.header {}
 
 .navbar {
-  backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.121); 
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.121);
   position: fixed;
   top: 0;
-  width: 100% ;
+  width: 100%;
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
@@ -21,6 +19,8 @@ body {
 
 .nav-link {
   color: black !important;
+  cursor: pointer;
+  letter-spacing: .7px;
 }
 
 .containerBtns {
@@ -39,7 +39,7 @@ body {
   object-fit: cover;
 }
 
-.buscador{
+.buscador {
   background-color: white;
   width: 70%;
   position: relative;
@@ -60,17 +60,17 @@ body {
   border-radius: 25px;
 }
 
-.paquetes{
+.paquetes {
   width: 70%;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
   margin: 10 0;
 }
 
-.paquetes{
+.paquetes {
   width: 70%;
   justify-content: space-between;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   margin: 10 0;
 }
@@ -78,25 +78,26 @@ body {
 .descripcion {
   width: 70%;
   justify-content: space-between;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   margin: 07% auto;
 
 }
 
 .imgDescripcion {
-  height: 55vh;
+  height: 50vh;
   object-fit: cover;
   border-radius: 25px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.626); /* Elige el color que prefieras */
-  border-radius: 50%; /* Opcional: hace que el fondo sea circular */
+  margin-right: 2rem;
 }
 
 
 .card {
   border-radius: 10px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

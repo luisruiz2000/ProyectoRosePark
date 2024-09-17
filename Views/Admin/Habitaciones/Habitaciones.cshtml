@@ -17,7 +17,6 @@
             <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
             <th>@Html.DisplayNameFor(model => model.EstadoHabitacion)</th>
             <th>@Html.DisplayNameFor(model => model.PrecioHabitacion)</th>
-            <th>@Html.DisplayNameFor(model => model.IdTipoHabitacionNavigation.Nombre)</th>
             <th></th>
         </tr>
     </thead>
@@ -29,11 +28,18 @@
                 <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
                 <td>@Html.DisplayFor(modelItem => item.EstadoHabitacion)</td>
                 <td>@Html.DisplayFor(modelItem => item.PrecioHabitacion)</td>
-                <td>@Html.DisplayFor(modelItem => item.IdTipoHabitacionNavigation.Nombre)</td>
                 <td>
-                    <a asp-action="EditarHabitaciones" asp-route-id="@item.IdHabitacion">Editar</a> |
-                    <a asp-action="EliminarHabitacion" asp-route-id="@item.IdHabitacion">Eliminar</a>
+                    <a href="@Url.Action("EditarHabitaciones", new { id = item.IdHabitacion })"
+                        class="btn btn-warning">Editar</a>
+
+                    <form action="@Url.Action("EliminarHabitacion","admin", new { id = item.IdHabitacion })" method="post"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro que desea eliminar esta habitación?');">
+                        <input type="hidden" name="id" value="@item.IdHabitacion" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
                 </td>
+
             </tr>
         }
     </tbody>
