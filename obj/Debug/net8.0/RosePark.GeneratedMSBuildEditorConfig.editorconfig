@@ -17,343 +17,343 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RosePark
 build_property.RootNamespace = RosePark
-build_property.ProjectDir = c:\Users\Juanes\Desktop\GitHub\ProyectoRosePark\
+build_property.ProjectDir = C:\Users\Juanes\Desktop\GitHub\ProyectoRosePark\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Juanes\Desktop\GitHub\ProyectoRosePark
+build_property.MSBuildProjectDirectory = C:\Users\Juanes\Desktop\GitHub\ProyectoRosePark
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Login.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Register.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Dashboard.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/CrearHabitaciones.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/CrearHabitaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSGFiaXRhY2lvbmVzXENyZWFySGFiaXRhY2lvbmVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/EditarHabitaciones.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/EditarHabitaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSGFiaXRhY2lvbmVzXEVkaXRhckhhYml0YWNpb25lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/Habitaciones.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Habitaciones/Habitaciones.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSGFiaXRhY2lvbmVzXEhhYml0YWNpb25lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Paquetes/EditarPaquete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Paquetes/EditarPaquete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFxdWV0ZXNcRWRpdGFyUGFxdWV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Paquetes/Paquetes.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Paquetes/Paquetes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFxdWV0ZXNcUGFxdWV0ZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/CrearServicio.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/CrearServicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljaW9zXENyZWFyU2VydmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/EditarServicio.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/EditarServicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljaW9zXEVkaXRhclNlcnZpY2lvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/Servicios.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/Servicios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljaW9zXFNlcnZpY2lvcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/CrearUsuario.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/CrearUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXN1YXJpb3NcQ3JlYXJVc3VhcmlvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/EditarUsuario.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/EditarUsuario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXN1YXJpb3NcRWRpdGFyVXN1YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/Usuarios.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Usuarios/Usuarios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVXN1YXJpb3NcVXN1YXJpb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Habitaciones/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGFiaXRhY2lvbmVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/ConfirmacionReserva.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/ConfirmacionReserva.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25maXJtYWNpb25SZXNlcnZhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Dashboard.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Paquetes.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Paquetes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQYXF1ZXRlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Privacy.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/ResumenReserva.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/ResumenReserva.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXN1bWVuUmVzZXJ2YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Search.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFyY2guY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Servicios.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Servicios.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXJ2aWNpb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/PaquetesServicios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNTZXJ2aWNpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Paquetes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFxdWV0ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Permisos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVybWlzb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Personas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVyc29uYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/ReservasServicios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNTZXJ2aWNpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Reservas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVzZXJ2YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/RolesPermisos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNQZXJtaXNvc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Servicios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/Error.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Create.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Delete.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Details.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Edit.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Index.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewImports.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewStart.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_Layout.cshtml]
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-r1zgzo7u59
