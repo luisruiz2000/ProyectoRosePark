@@ -1,0 +1,70 @@
+@model IEnumerable<RosePark.Models.Reserva>
+
+@{
+    Layout = "_AdminLayout";
+}
+
+<h2>Gestión de Reservas</h2>
+<a href="@Url.Action("CrearReserva")" class="btn btn-primary">Crear Nueva Reserva</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha Reserva</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Nro de Personas</th>
+            <th>Monto Total</th>
+            <th>Abono</th>
+            <th>Estado</th>
+            <th>Usuario</th>
+            <th>Servicios</th> <!-- Nueva columna para Servicios -->
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reserva in Model)
+        {
+            <tr>
+                <td>@reserva.FechaReserva.ToShortDateString()</td>
+                <td>@reserva.FechaInicio.ToShortDateString()</td>
+                <td>@reserva.FechaFin.ToShortDateString()</td>
+                <td>@reserva.NroPersonas</td>
+                <td>@reserva.MontoTotal?.ToString("C")</td>
+                <td>@reserva.Abono?.ToString("C")</td>
+                <td>@reserva.EstadoReserva</td>
+                <td>@reserva.IdUsuarioNavigation?.IdPersonasNavigation?.Nombres
+                    @reserva.IdUsuarioNavigation?.IdPersonasNavigation?.Apellidos</td>
+
+                <td>
+                    @if (reserva.ReservasServicios != null && reserva.ReservasServicios.Any())
+                    {
+                        <ul>
+                            @foreach (var servicio in reserva.ReservasServicios)
+                            {
+                                <li>@servicio.IdServicioNavigation?.NombreServicio</li>
+                                <!-- Asegúrate de tener esta propiedad en el modelo Servicio -->
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span>No hay servicios asignados</span>
+                    }
+                </td>
+
+                <td>
+                    <a href="@Url.Action("EditarReserva", new { id = reserva.IdReserva })"
+                        class="btn btn-warning">Editar</a>
+                    <form action="@Url.Action("EliminarReserva", new { id = reserva.IdReserva })" method="post"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro de que desea eliminar esta reserva?');">
+                        <input type="hidden" name="id" value="@reserva.IdReserva" />
+                    </form>
+                    <a href="@Url.Action("RealizarCheckIn", new { id = reserva.IdReserva })"
+                        class="btn btn-success">Check-In</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

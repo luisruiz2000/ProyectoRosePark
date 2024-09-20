@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RosePark")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe25b8a1b7ff2b26904774e45161026e720ebded")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9058264ec1f43e0d7b57af81530ed2c8bb6c5f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("RosePark")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RosePark")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

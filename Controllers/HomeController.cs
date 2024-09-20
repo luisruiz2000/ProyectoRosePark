@@ -109,26 +109,12 @@ namespace RosePark.Controllers
                 ))
                 .ToListAsync();
 
-            // Aplicar incremento del 10% en el precio de los paquetes
-            foreach (var paquete in availablePackages)
-            {
-                if (paquete.IdHabitacionNavigation != null)
-                {
-                    paquete.IdHabitacionNavigation.PrecioHabitacion *= 1.10m; // Incremento del 10%
-                }
-
-                foreach (var paquetesServicio in paquete.PaquetesServicios)
-                {
-                    var servicio = paquetesServicio.IdServicioNavigation;
-                    if (servicio != null && servicio.PrecioServicio > 0)
-                    {
-                        servicio.PrecioServicio *= 1.10m; // Incremento del 10%
-                    }
-                }
-            }
+            // Eliminar el incremento del 10%
+            // Ya no se aplicará ningún cambio en los precios de los paquetes o servicios
 
             return View("Search", availablePackages);
         }
+
 
 
 
@@ -146,50 +132,54 @@ namespace RosePark.Controllers
 
         public IActionResult ResumenReserva(int id)
         {
-            // Obtener el paquete y las relaciones necesarias (Habitación y Servicios)
             var paquete = _context.Paquetes
                                   .Include(p => p.IdHabitacionNavigation)
                                   .Include(p => p.PaquetesServicios)
                                   .ThenInclude(ps => ps.IdServicioNavigation)
                                   .FirstOrDefault(p => p.IdPaquete == id);
 
-            // Verificar si el paquete existe
             if (paquete == null)
             {
                 return NotFound();
             }
 
-            // Obtener fechas y número de personas desde la sesión
             var checkinDate = HttpContext.Session.GetString("CheckinDate");
             var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
             var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
 
-            // Calcular el precio total dinámicamente
             decimal precioHabitacion = paquete.IdHabitacionNavigation.PrecioHabitacion;
-
-            // Sumar los precios de los servicios asociados
             decimal precioServicios = paquete.PaquetesServicios
                                              .Sum(ps => ps.IdServicioNavigation.PrecioServicio);
 
-            // Aplicar un porcentaje adicional si lo deseas (ejemplo: 10% adicional)
-            decimal porcentajeAdicional = 0.10m; // 10% de recargo
-            decimal precioTotal = (precioHabitacion + precioServicios) * (1 + porcentajeAdicional);
+            // Eliminar el incremento del 10%
+            decimal precioTotal = precioHabitacion + precioServicios;
 
-            // Crear el modelo de resumen de reserva
-            var modeloResumen = new ResumenReservaViewModel
+            var serviciosIncluidos = paquete.PaquetesServicios
+                                            .Select(ps => ps.IdServicioNavigation)
+                                            .Where(s => s.PrecioServicio == 0)
+                                            .ToList();
+
+            var idsServiciosIncluidos = paquete.PaquetesServicios
+                                               .Select(ps => ps.IdServicioNavigation.IdServicio)
+                                               .ToList();
+
+            var serviciosDisponibles = _context.Servicios
+                                                .Where(s => s.PrecioServicio > 0 && !idsServiciosIncluidos.Contains(s.IdServicio))
+                                                .ToList();
+
+            var modeloResumen = new
             {
                 IdPaquete = paquete.IdPaquete,
                 NombrePaquete = paquete.NombrePaquete,
                 Descripcion = paquete.Descripcion,
                 NorHabitacion = paquete.IdHabitacionNavigation?.NorHabitacion,
-                PrecioTotal = precioTotal, // Ahora calculado dinámicamente
+                PrecioTotal = precioTotal, // Sin incremento
                 FechaInicio = DateTime.Parse(checkinDate),
                 FechaFin = DateTime.Parse(checkoutDate),
                 NumeroPersonas = numeroPersonas,
-                ServiciosAdicionales = paquete.PaquetesServicios
-                                              .Select(ps => ps.IdServicioNavigation)
-                                              .ToList(),
-                ServiciosDisponibles = _context.Servicios.ToList()
+                ServiciosAdicionales = serviciosIncluidos,
+                ServiciosDisponibles = serviciosDisponibles,
+                ImagenHabitacion = paquete.IdHabitacionNavigation?.ImagenUrl
             };
 
             return View(modeloResumen);
@@ -197,30 +187,25 @@ namespace RosePark.Controllers
 
 
         [HttpPost]
-        public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional, string metodoPago)
+        public IActionResult ConfirmarReserva(int IdPaquete, string[] servicioAdicional)
         {
             // Verificar si el usuario está autenticado
             if (!User.Identity.IsAuthenticated)
             {
-                // Almacenar los datos de la reserva en TempData
                 TempData["IdPaquete"] = IdPaquete;
                 TempData["ServicioAdicional"] = JsonConvert.SerializeObject(servicioAdicional);
-                TempData["MetodoPago"] = metodoPago;
 
-                // Redirigir a la página de inicio de sesión
                 return RedirectToAction("Login", "Account");
             }
 
-            // Continuar con la lógica de confirmación de la reserva...
             var checkinDate = HttpContext.Session.GetString("CheckinDate");
             var checkoutDate = HttpContext.Session.GetString("CheckoutDate");
             var numeroPersonas = HttpContext.Session.GetInt32("NumeroPersonas") ?? 1;
 
-            // Obtener el paquete, la habitación asociada y los servicios del paquete
             var paquete = _context.Paquetes
                 .Include(p => p.PaquetesServicios)
                 .ThenInclude(ps => ps.IdServicioNavigation)
-                .Include(p => p.IdHabitacionNavigation) // Incluir la habitación para obtener el precio
+                .Include(p => p.IdHabitacionNavigation)
                 .FirstOrDefault(p => p.IdPaquete == IdPaquete);
 
             if (paquete == null)
@@ -228,23 +213,20 @@ namespace RosePark.Controllers
                 return NotFound();
             }
 
-            // Calcular el precio total dinámicamente
-            decimal precioTotal = paquete.IdHabitacionNavigation.PrecioHabitacion; // Precio de la habitación
+            // Calcular el precio total sin incremento
+            decimal precioTotal = paquete.IdHabitacionNavigation.PrecioHabitacion;
 
             var serviciosAdicionales = new List<Servicio>();
-
-            // Sumar los precios de los servicios adicionales seleccionados
             foreach (var servicioId in servicioAdicional)
             {
                 var servicio = _context.Servicios.Find(int.Parse(servicioId));
                 if (servicio != null)
                 {
-                    precioTotal += servicio.PrecioServicio; // Sumamos el costo del servicio adicional
+                    precioTotal += servicio.PrecioServicio; // Solo sumar los costos de los servicios adicionales
                     serviciosAdicionales.Add(servicio);
                 }
             }
 
-            // Obtener el ID del usuario autenticado
             var userIdClaim = User.FindFirst("IdUsuario");
             if (userIdClaim == null)
             {
@@ -253,7 +235,23 @@ namespace RosePark.Controllers
 
             int idUsuario = int.Parse(userIdClaim.Value);
 
-            // Crear la nueva reserva
+            // Recibir el abono del input
+            decimal abono = decimal.Parse(Request.Form["abono"]);
+
+            // Asignar el estado de la reserva según el valor del abono
+            // Asignar el estado de la reserva según el valor del abono
+            Reserva.EstadoReservaEnum estadoReserva;
+            // Asignar el estado de la reserva según el valor del abono
+
+            if (abono == precioTotal)
+            {
+                estadoReserva = Reserva.EstadoReservaEnum.Confirmada; // Cambia a Confirmada si es el 100%
+            }
+            else
+            {
+                estadoReserva = Reserva.EstadoReservaEnum.Pendiente; // Solo se puede llegar aquí si es mínimo el 70%
+            }
+
             var nuevaReserva = new Reserva
             {
                 IdPaquete = IdPaquete,
@@ -261,16 +259,15 @@ namespace RosePark.Controllers
                 FechaInicio = DateTime.Parse(checkinDate),
                 FechaFin = DateTime.Parse(checkoutDate),
                 NroPersonas = numeroPersonas,
-                MontoTotal = precioTotal, // Usar el precio total calculado
-                Abono = 0,
-                EstadoReserva = "Pendiente",
+                MontoTotal = precioTotal, // Sin incremento
+                Abono = abono,
+                EstadoReserva = estadoReserva,
                 IdUsuario = idUsuario
             };
 
             _context.Reservas.Add(nuevaReserva);
             _context.SaveChanges();
 
-            // Asignar los servicios adicionales a la reserva
             foreach (var servicio in serviciosAdicionales)
             {
                 var reservaServicio = new ReservasServicio
@@ -285,6 +282,10 @@ namespace RosePark.Controllers
 
             return RedirectToAction("ConfirmacionReserva", new { id = nuevaReserva.IdReserva });
         }
+
+
+
+
 
 
 

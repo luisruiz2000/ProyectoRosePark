@@ -58,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFxdWV0ZXNcUGFxdWV0ZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Reservas/EditarReserva.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVzZXJ2YXNcRWRpdGFyUmVzZXJ2YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Reservas/Reservas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUmVzZXJ2YXNcUmVzZXJ2YXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Admin/Servicios/CrearServicio.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2VydmljaW9zXENyZWFyU2VydmljaW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -104,10 +112,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/ConfirmacionReserva.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb25maXJtYWNpb25SZXNlcnZhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Dashboard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Juanes/Desktop/GitHub/ProyectoRosePark/Views/Home/Index.cshtml]

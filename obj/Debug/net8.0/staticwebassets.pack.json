@@ -93,6 +93,14 @@
       "PackagePath": "staticwebassets\\img\\RoseParkNegro.png"
     },
     {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Servicios\\CenaRomantica.jpg",
+      "PackagePath": "staticwebassets\\img\\Servicios\\CenaRomantica.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\Servicios\\Spa.jpg",
+      "PackagePath": "staticwebassets\\img\\Servicios\\Spa.jpg"
+    },
+    {
       "Id": "C:\\Users\\Juanes\\Desktop\\GitHub\\ProyectoRosePark\\wwwroot\\img\\about_feature_image.png",
       "PackagePath": "staticwebassets\\img\\about_feature_image.png"
     },

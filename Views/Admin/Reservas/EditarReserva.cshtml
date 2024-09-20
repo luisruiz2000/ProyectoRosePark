@@ -1,0 +1,54 @@
+@model RosePark.Models.Reserva
+
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Editar Reserva";
+}
+
+<h2>Editar Reserva</h2>
+
+<form asp-action="ActualizarReserva" method="post">
+    <input type="hidden" asp-for="IdReserva" />
+
+    <div class="mb-3">
+        <label asp-for="IdPaquete" class="form-label">Paquete</label>
+        <select asp-for="IdPaquete" class="form-select" asp-items="ViewBag.Paquetes">
+            <option value="">Seleccione un paquete</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NroPersonas" class="form-label">Número de Personas</label>
+        <input asp-for="NroPersonas" class="form-control" type="number" min="1" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaInicio" class="form-label">Fecha de Inicio</label>
+        <input asp-for="FechaInicio" class="form-control" type="date" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="FechaFin" class="form-label">Fecha de Fin</label>
+        <input asp-for="FechaFin" class="form-control" type="date" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MontoTotal" class="form-label">Monto Total</label>
+        <input asp-for="MontoTotal" class="form-control" type="number" step="0.01" readonly />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Abono" class="form-label">Abono</label>
+        <input asp-for="Abono" class="form-control" type="number" step="0.01" required />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="EstadoReserva" class="form-label">Estado de la Reserva</label>
+        <select asp-for="EstadoReserva" class="form-select" asp-items="Html.GetEnumSelectList<RosePark.Models.Reserva.EstadoReservaEnum>()">
+            <option value="">Seleccione un estado</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar Reserva</button>
+    <a asp-action="Reservas" class="btn btn-secondary">Cancelar</a>
+</form>

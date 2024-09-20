@@ -545,6 +545,62 @@ namespace RosePark.Controllers
 
 
 
+        public IActionResult Reservas()
+        {
+            // Cargar las reservas con sus relaciones, incluyendo los servicios asociados
+            var reservas = _context.Reservas
+                .Include(r => r.IdUsuarioNavigation)
+                .ThenInclude(u => u.IdPersonasNavigation) // Incluye la relación con Personas
+                .Include(r => r.IdPaqueteNavigation)
+                .Include(r => r.ReservasServicios) // Incluir la relación con ReservasServicios
+                .ThenInclude(rs => rs.IdServicioNavigation) // Incluir la relación con Servicio
+                .ToList();
+
+            return View("Reservas/Reservas",reservas);
+        }
+
+
+
+        public IActionResult EditarReserva(int id)
+        {
+            var reserva = _context.Reservas
+                .Include(r => r.IdPaqueteNavigation)
+                .FirstOrDefault(r => r.IdReserva == id);
+
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+
+            ViewBag.Paquetes = new SelectList(_context.Paquetes, "IdPaquete", "NombrePaquete", reserva.IdPaquete);
+            return View("Reservas/EditarReserva", reserva);
+        }
+
+
+
+        [HttpPost]
+        public IActionResult ActualizarReserva(Reserva reserva)
+        {
+            if (ModelState.IsValid)
+            {
+                // Validar que las fechas estén dentro del rango permitido
+                if (reserva.FechaInicio < new DateTime(1753, 1, 1) || reserva.FechaFin < new DateTime(1753, 1, 1))
+                {
+                    ModelState.AddModelError("Fecha", "Las fechas deben estar entre el 1 de enero de 1753 y el 31 de diciembre de 9999.");
+                }
+                else
+                {
+                    _context.Reservas.Update(reserva);
+                    _context.SaveChanges();
+                    return RedirectToAction("Reservas");
+                }
+            }
+
+            // Si llegamos aquí, hubo un error
+            ViewBag.Paquetes = new SelectList(_context.Paquetes, "IdPaquete", "NombrePaquete", reserva.IdPaquete);
+            return View("EditarReserva", reserva); // Asegúrate de devolver la vista correcta
+        }
+
 
 
 

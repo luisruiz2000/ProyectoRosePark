@@ -1,4 +1,4 @@
-@model RosePark.Models.ResumenReservaViewModel
+@model dynamic
 
 <!DOCTYPE html>
 <html lang="es">
@@ -35,15 +35,15 @@
 <body class="bg-white">
 
     <div class="contain d-flex text-start">
-        <img src="~/img/ResumenReserva.jpg" class="imgResumenReserva me-4" alt="foto gramping" width="500">
+        <img src="@Model.ImagenHabitacion" class="imgResumenReserva me-4" alt="Imagen de la Habitación" width="500">
         <div class="w-50">
             <section>
                 <h4>@Model.NombrePaquete</h4>
-                <p> @Model.Descripcion</p>
-                <p><strong>Habitación</strong> @Model.NorHabitacion</p>
-                <p><strong>Fechas</strong> @Model.FechaInicio.ToShortDateString() - @Model.FechaFin.ToShortDateString()
+                <p>@Model.Descripcion</p>
+                <p><strong>Habitación:</strong> @Model.NorHabitacion</p>
+                <p><strong>Fechas:</strong> @Model.FechaInicio.ToShortDateString() - @Model.FechaFin.ToShortDateString()
                 </p>
-                <p><strong>Personas</strong> @Model.NumeroPersonas</p>
+                <p><strong>Personas:</strong> @Model.NumeroPersonas</p>
             </section>
             <hr>
             <section>
@@ -51,7 +51,10 @@
                 <ul>
                     @foreach (var servicio in Model.ServiciosAdicionales)
                     {
-                        <li>@servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")</li>
+                        <li>
+                            @servicio.NombreServicio @(servicio.PrecioServicio > 0 ? servicio.PrecioServicio.ToString("C") :
+                        "")
+                        </li>
                     }
                 </ul>
             </section>
@@ -60,31 +63,34 @@
                 <h3>Selecciona Servicios Adicionales</h3>
                 <form asp-action="ConfirmarReserva" method="post">
                     <input type="hidden" name="IdPaquete" value="@Model.IdPaquete" />
-                    <input type="hidden" name="metodoPago" value="Tarjeta" /> <!-- Ajustar según sea necesario -->
-
                     @foreach (var servicio in Model.ServiciosDisponibles)
                     {
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="servicioAdicional"
                                 value="@servicio.IdServicio" data-precio="@servicio.PrecioServicio"
                                 id="servicio@servicio.IdServicio">
-                            <label class="form-check-label" for="servicio@servicio.IdServicio">@servicio.NombreServicio -
-                                @servicio.PrecioServicio.ToString("C")</label>
+                            <label class="form-check-label" for="servicio@servicio.IdServicio">
+                                <div class="card">
+                                    <img src="@servicio.UrlIcono" class="card-img-top" alt="Imagen del Servicio" />
+                                    <div class="card-body">
+                                        @servicio.NombreServicio - @servicio.PrecioServicio.ToString("C")
+                                    </div>
+                                </div>
+                            </label>
                         </div>
                     }
                     <hr>
                     <div class="form-group mt-3">
-                        <label for="metodoPago">Método de Pago</label>
-                        <select class="form-control" name="metodoPago" id="metodoPago">
-                            <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
-                            <option value="Transferencia Bancaria">Transferencia Bancaria</option>
-                            <option value="Efectivo">Efectivo</option>
-                        </select>
+                        <label for="abono">Valor a Abonar</label>
+                        <input type="number" class="form-control" name="abono" id="abono" min="0" step="0.01" required>
+                        <small class="form-text text-muted">El abono debe ser mínimo el 70% del costo total y no exceder
+                            el monto total.</small>
                     </div>
+
 
                     <div class="items-end">
                         <button type="submit" class="btn btn-primary">Confirmar Reserva</button>
-                        <h3 class="m-0"><strong class="me-2">Total</strong> <span id="precioTotal"
+                        <h3 class="m-0"><strong class="me-2">Total:</strong> <span id="precioTotal"
                                 data-base-precio="@Model.PrecioTotal">@Model.PrecioTotal.ToString("C")</span></h3>
                     </div>
                 </form>
@@ -94,41 +100,37 @@
 
     <script>
         $(document).ready(function () {
-            // Función para actualizar el precio total
             function actualizarPrecioTotal() {
-                // Obtener el precio base del paquete
                 let precioBase = parseFloat($("#precioTotal").attr("data-base-precio"));
                 let precioAdicional = 0;
 
-                // Sumar el precio de los servicios adicionales seleccionados
                 $("input[name='servicioAdicional']:checked").each(function () {
                     precioAdicional += parseFloat($(this).data("precio"));
                 });
 
-                // Calcular el precio total
                 let precioTotal = precioBase + precioAdicional;
-
-                // Mostrar el precio total en el formato adecuado
                 $("#precioTotal").text(formatearMoneda(precioTotal));
+
+                let abonoMinimo = precioTotal * 0.7;
+                $("#abono").attr("min", abonoMinimo.toFixed(2));
+                $("#abono").attr("max", precioTotal.toFixed(2));
             }
 
-            // Función para formatear números como moneda
             function formatearMoneda(valor) {
                 return valor.toLocaleString('es-CO', { style: 'currency', currency: 'COP' });
             }
 
-            // Inicializar el precio base en un atributo de HTML
             let precioInicial = parseFloat($("#precioTotal").attr("data-base-precio"));
             $("#precioTotal").text(formatearMoneda(precioInicial));
 
-            // Llamar a la función cuando se seleccionen o deseleccionen servicios adicionales
             $("input[name='servicioAdicional']").change(function () {
                 actualizarPrecioTotal();
             });
 
-            // Llamar a la función al cargar la página para establecer el precio correcto
             actualizarPrecioTotal();
         });
+
+
     </script>
 
 </body>
