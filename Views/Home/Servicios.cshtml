@@ -1,9 +1,21 @@
-@model IEnumerable<RosePark.Models.Servicio>;
+@model IEnumerable<RosePark.Models.Servicio>
 
 @{
     Layout = "_Layout";
-}
 
+    // Lista de URLs de imágenes
+    var imageUrls = new List<string>
+    {
+        "https://www.hotelmelbeach.com/media/uploads/gcontent/gallery/welleness-melbe-b.jpg?q=pr:sharp/rs:fill/w:1400/h:700/g:ce/f:jpg",
+        "https://i.pinimg.com/564x/e1/7a/51/e17a51f886ffce3658dd2c3444bd4a80.jpg",
+        "https://i.pinimg.com/564x/0d/57/6f/0d576f70f60fd6f04b4e1d5bab529586.jpg",
+        "https://i.pinimg.com/474x/2b/71/84/2b7184cacdd6a5d85b9bc22dfb8b8dd9.jpg",
+        "https://i.pinimg.com/236x/54/3e/62/543e62a71ab516e365a9bf53fa5ba8c8.jpg"
+    };
+
+    // Contador para las imágenes
+    int imageIndex = 0;
+}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -18,24 +30,42 @@
     <link rel="stylesheet" href="~/RosePark.styles.css" asp-append-version="true" />
 </head>
 
+<style>
+    .containerr {
+        margin: 0 5rem;
+        padding-top: 5rem;
+    }
+
+
+</style>
+
 <body>
-    <section class="container">
-        <h2 class="mb-5 text-center">Servicios No Gratuitos</h2>
+    <section class="containerr">
+        <h2 class="mb-5 text-center">Servicios adicionales</h2>
 
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
             @if (Model != null && Model.Any())
             {
                 @foreach (var servicio in Model)
                 {
+                    // Verificar si el índice supera la cantidad de URLs
+                    if (imageIndex >= imageUrls.Count)
+                    {
+                        imageIndex = 0; // Reiniciar el índice si se supera la cantidad de URLs
+                    }
+
                     <div class="col mb-4">
                         <div class="card">
-                            <img src="@servicio.UrlIcono" class="card-img-top" alt="Icono del Servicio" />
+                            <img src="@imageUrls[imageIndex]" class="card-img-top img-servicios" alt="Imagen del Servicio" />
                             <div class="card-body">
                                 <h5 class="card-title">@servicio.NombreServicio</h5>
                                 <p class="card-text">Precio: $@String.Format("{0:N0}", servicio.PrecioServicio)</p>
                             </div>
                         </div>
                     </div>
+
+                    // Incrementar el índice para la siguiente imagen
+                    imageIndex++;
                 }
             }
             else
