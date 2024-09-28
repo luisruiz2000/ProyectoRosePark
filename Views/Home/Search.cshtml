@@ -14,10 +14,17 @@
     <title>Buscar Paquetes</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+<style>
+    .containerr {
+        padding: 5rem 1rem 1rem 1rem;
+    }
+</style>
+
 <body>
 
-    <section class="container">
-        <h2 class="mb-5 text-center">Resultados de Disponibilidad</h2>
+    <section class="containerr">
+        <h2 class="mb-5  text-center">Resultados de Disponibilidad</h2>
 
         <div class="row row-cols-4">
             @if (Model != null && Model.Any())
@@ -26,7 +33,7 @@
                 {
                     <div class="col d-flex justify-content-center mb-5">
                         <div class="card" style="width: 18rem;">
-                            <img src="@paquete.IdHabitacionNavigation?.ImagenUrl" class="card-img-top" alt="Imagen de la Habitación">
+                            <img src="@paquete.IdHabitacionNavigation?.ImagenUrl" class="card-img-top" height="300" alt="Imagen de la Habitación">
                             <div class="card-body">
                                 <h5 class="card-title">@paquete.NombrePaquete</h5>
                                 <p class="card-text">@paquete.Descripcion</p>

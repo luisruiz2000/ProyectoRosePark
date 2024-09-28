@@ -5,40 +5,55 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Editar Habitación</h2>
+<style>
+    .form {
+        width: 50%;
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
 
-<form asp-action="EditarHabitaciones" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="IdHabitacion" />
-    <!-- Los mismos campos que en CrearHabitaciones -->
-    <div class="form-group">
-        <label asp-for="NorHabitacion" class="control-label">Nombre de la habitación</label>
-        <input asp-for="NorHabitacion" class="form-control" />
-        <span asp-validation-for="NorHabitacion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Descripcion" class="control-label"></label>
-        <input asp-for="Descripcion" class="form-control" />
-        <span asp-validation-for="Descripcion" class="text-danger"></span>
-    </div>
-
-    <div class="form-group">
-        <label asp-for="EstadoHabitacion" class="control-label"></label>
-        <select asp-for="EstadoHabitacion" class="form-control">
-            @foreach (var estado in Enum.GetValues(typeof(RosePark.Models.Habitacione.EstadoHabitacionEnum)))
-            {
-                <option value="@estado">@estado</option>
-            }
-        </select>
-    </div>
+    .control-label{ 
+        margin-bottom: 6px;
+        font-weight: 900;
+        color: #222;
+    }
+</style>
 
 
-    <div class="form-group">
-        <label asp-for="PrecioHabitacion" class="control-label"></label>
-        <input asp-for="PrecioHabitacion" class="form-control" />
-        <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Guardar" class="btn btn-primary" />
-    </div>
-</form>
+<h2 class="text-center">Editar Habitación</h2>
+<div class="d-flex justify-content-center mt-4" style="height: 100vh;">
+    <form asp-action="EditarHabitaciones" class="form" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="IdHabitacion" />
+        <div class="form-group">
+            <label asp-for="NorHabitacion" class="control-label">Nombre de la habitación</label>
+            <input asp-for="NorHabitacion" class="form-control" />
+            <span asp-validation-for="NorHabitacion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion" class="control-label"></label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EstadoHabitacion" class="control-label"></label>
+            <select asp-for="EstadoHabitacion" class="form-control">
+                @foreach (var estado in Enum.GetValues(typeof(RosePark.Models.Habitacione.EstadoHabitacionEnum)))
+                {
+                    <option value="@estado">@estado</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PrecioHabitacion" class="control-label"></label>
+            <input asp-for="PrecioHabitacion" class="form-control" />
+            <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

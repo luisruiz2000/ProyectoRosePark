@@ -81,6 +81,14 @@
       "PackagePath": "staticwebassets/img/Iconos/comprobar.png"
     },
     {
+      "Id": "/home/l/Escritorio/ProyectoSena/ProyectoRosePark/wwwroot/img/Iconos/star-con.png",
+      "PackagePath": "staticwebassets/img/Iconos/star-con.png"
+    },
+    {
+      "Id": "/home/l/Escritorio/ProyectoSena/ProyectoRosePark/wwwroot/img/Iconos/star_null.png",
+      "PackagePath": "staticwebassets/img/Iconos/star_null.png"
+    },
+    {
       "Id": "/home/l/Escritorio/ProyectoSena/ProyectoRosePark/wwwroot/img/ResumenReserva.jpg",
       "PackagePath": "staticwebassets/img/ResumenReserva.jpg"
     },

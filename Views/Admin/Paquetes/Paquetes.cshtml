@@ -30,26 +30,36 @@
                 <td>@paquete.Estado</td>
                 <td>@paquete.IdHabitacionNavigation?.NorHabitacion</td>
                 <td>
-                    @foreach (var servicio in paquete.PaquetesServicios)
-                    {
-                        <span>@servicio.IdServicioNavigation.NombreServicio</span>
-
-                        <br />
-                    }
+                    <div class="service-list">
+                        @foreach (var servicio in paquete.PaquetesServicios)
+                        {
+                            <span class="badge bg-secondary">@servicio.IdServicioNavigation.NombreServicio</span>
+                        }
+                    </div>
                 </td>
                 <td>
-                    <a href="@Url.Action("EditarPaquete", new { id = paquete.IdPaquete })"
-                        class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("EditarPaquete", new { id = paquete.IdPaquete })" class="btn btn-warning w-100">Editar</a>
 
                     <form action="@Url.Action("EliminarPaquete", new { id = paquete.IdPaquete })" method="post"
                         style="display:inline;"
                         onsubmit="return confirm('¿Está seguro de que desea eliminar este paquete?');">
                         <input type="hidden" name="id" value="@paquete.IdPaquete" />
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-danger w-100">Eliminar</button>
                     </form>
                 </td>
-
             </tr>
         }
     </tbody>
 </table>
+
+<style>
+    .service-list {
+        max-height: 100px; /* Ajusta la altura máxima según tus necesidades */
+        overflow-y: auto; /* Agrega desplazamiento vertical si hay demasiados servicios */
+    }
+
+    .service-list .badge {
+        margin-right: 5px; /* Espacio entre las etiquetas */
+        margin-bottom: 5px; /* Espacio entre filas si hay varias */
+    }
+</style>

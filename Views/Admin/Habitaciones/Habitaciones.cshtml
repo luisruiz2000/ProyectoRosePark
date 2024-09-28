@@ -5,7 +5,7 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Lista de Habitaciones</h2>
+<h2>Habitaciones</h2>
 
 <p>
     <a asp-action="CrearHabitaciones" class="btn btn-primary">Crear Nueva Habitación</a>
@@ -30,16 +30,14 @@
                 <td>@Html.DisplayFor(modelItem => item.PrecioHabitacion)</td>
                 <td>
                     <a href="@Url.Action("EditarHabitaciones", new { id = item.IdHabitacion })"
-                        class="btn btn-warning">Editar</a>
-
-                    <form action="@Url.Action("EliminarHabitacion","admin", new { id = item.IdHabitacion })" method="post"
+                        class="btn btn-warning w-100 mb-2">Editar</a>
+                    <form action="@Url.Action("EliminarHabitacion", "admin", new { id = item.IdHabitacion })" method="post"
                         style="display:inline;"
                         onsubmit="return confirm('¿Está seguro que desea eliminar esta habitación?');">
                         <input type="hidden" name="id" value="@item.IdHabitacion" />
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-danger w-100">Eliminar</button>
                     </form>
                 </td>
-
             </tr>
         }
     </tbody>

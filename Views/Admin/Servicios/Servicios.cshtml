@@ -4,13 +4,13 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Gestión de Servicios</h2>
-<a href="@Url.Action("CrearServicio")" class="btn btn-primary">Crear Nuevo Servicio</a>
+<h2>Servicios</h2>
+<a href="@Url.Action("CrearServicio")" class="btn btn-primary my-4">Crear Nuevo Servicio</a>
 
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Id</th>
+            @* <th>Id</th> *@
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>
@@ -22,8 +22,9 @@
         @foreach (var servicio in Model)
         {
             <tr>
-                <td>@servicio.IdServicio</td>
+                @* <td>@servicio.IdServicio</td> *@
                 <td>@servicio.NombreServicio</td>
+                <td></td>
                 <td>@servicio.PrecioServicio.ToString("C")</td>
                 <td>@servicio.EstadoServicio</td>
                 <td>

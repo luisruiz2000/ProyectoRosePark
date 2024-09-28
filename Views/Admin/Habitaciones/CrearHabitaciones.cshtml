@@ -5,29 +5,47 @@
     Layout = "_AdminLayout";
 }
 
-<h2>Crear Nueva Habitación</h2>
+<style>
+    .form-container {
+        width: 50%; /* Ancho del 50% */
+    }
+    .form-group {
+        margin-bottom: 1rem;
+    }
 
-<form asp-action="CrearHabitaciones" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="NorHabitacion" class="control-label"></label>
-        <input asp-for="NorHabitacion" class="form-control" />
-        <span asp-validation-for="NorHabitacion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Descripcion" class="control-label"></label>
-        <input asp-for="Descripcion" class="form-control" />
-        <span asp-validation-for="Descripcion" class="text-danger"></span>
-    </div>
+    .control-label {
+        margin-bottom: 6px;
+        font-weight: 900;
+        color: #222;
+    }
+</style>
 
-    <div class="form-group">
-        <label asp-for="PrecioHabitacion" class="control-label"></label>
-        <input asp-for="PrecioHabitacion" class="form-control" />
-        <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Crear" class="btn btn-primary" />
-    </div>
-    
-    <input asp-for="EstadoHabitacion" class="form-control" value="0" />
-</form>
+<h2 class="text-center mb-4">Crear Nueva Habitación</h2>
+
+<div class="d-flex justify-content-center">
+    <form asp-action="CrearHabitaciones" method="post" class="form-container">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="NorHabitacion" class="control-label">Nombre de la habitación</label>
+            <input asp-for="NorHabitacion" class="form-control" />
+            <span asp-validation-for="NorHabitacion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Descripcion" class="control-label">Descripción</label>
+            <input asp-for="Descripcion" class="form-control" />
+            <span asp-validation-for="Descripcion" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PrecioHabitacion" class="control-label">Precio</label>
+            <input asp-for="PrecioHabitacion" class="form-control" />
+            <span asp-validation-for="PrecioHabitacion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Crear" class="btn btn-primary" />
+        </div>
+        
+        <!-- Este campo no debería ser visible, si es necesario usarlo en el backend, considera usar un campo oculto -->
+        <input asp-for="EstadoHabitacion" class="form-control" type="hidden" value="0" />
+    </form>
+</div>

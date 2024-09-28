@@ -2,41 +2,47 @@
 
 @{
     Layout = "_Layout";
-    
+
     // Lista de URLs de imágenes
     var imageUrls = new List<string>
-    {
-        "https://i.imgur.com/545yCD7.jpeg",
-        "https://i.imgur.com/jnaS7vU.jpeg",
-        "https://i.imgur.com/5B96vii.jpeg",
-        "https://i.imgur.com/g7y85wp.jpeg"
-    };
+{
+"https://i.imgur.com/545yCD7.jpeg",
+"https://i.imgur.com/jnaS7vU.jpeg",
+"https://i.imgur.com/5B96vii.jpeg",
+"https://i.imgur.com/g7y85wp.jpeg"
+};
 }
 
 <style>
-    .containerr {
-        margin: 0 2rem;
-        padding-top: 5rem;
+    .title {
+        text-align: center;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
     }
 
-    .container-cards {
-        
-    }
-
-    .img-paquetes {
-        height: 248px;
+    .containerCards {
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 
     .card {
-        height: 500px;
+        width: 45vw;
+        display: flex !important;
+        flex-direction: row;
     }
 
+    .img-paquetes {
+        width: 300px;
+    }
 </style>
 
 <div class="containerr">
-    <h2 class="mb-5 text-center">Gestión de Paquetes</h2>
+    <h2 class="title">Gestión de Paquetes</h2>
 
-    <div class="row container-cards">
+    <div class="containerCards">
         @for (int i = 0; i < Model.Count(); i++)
         {
             var paquete = Model.ElementAt(i);
@@ -44,28 +50,21 @@
             var imgIndex = i % imageUrls.Count;
             var imageUrl = imageUrls[imgIndex];
 
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="@imageUrl" class="card-img-top img-paquetes" alt="Imagen del Paquete">
-                    <div class="card-body">
-                        <h5 class="card-title">@paquete.NombrePaquete</h5>
-                        <p class="card-text"><strong>Descripción:</strong> @paquete.Descripcion</p>
-                        <p class="card-text"><strong>Habitación:</strong> @paquete.IdHabitacionNavigation?.NorHabitacion</p>
-                        <p class="card-text"><strong>Servicios</strong></p>
-                        <ul>
-                            @foreach (var servicio in paquete.PaquetesServicios)
-                            {
-                                <li>@servicio.IdServicioNavigation.NombreServicio</li>
-                            }
-                        </ul>
-                    </div>
+            <div class="card">
+                <img src="@imageUrl" class="card-img-top img-paquetes" alt="Imagen del Paquete">
+                <div class="card-body">
+                    <h5 class="card-title">@paquete.NombrePaquete</h5>
+                    <p class="card-text"><strong>Descripción:</strong> @paquete.Descripcion</p>
+                    <p class="card-text"><strong>Habitación:</strong> @paquete.IdHabitacionNavigation?.NorHabitacion</p>
+                    <p class="card-text"><strong>Servicios</strong></p>
+                    <ul>
+                        @foreach (var servicio in paquete.PaquetesServicios)
+                        {
+                            <li>@servicio.IdServicioNavigation.NombreServicio</li>
+                        }
+                    </ul>
                 </div>
             </div>
-
-            @if ((i + 1) % 3 == 0)
-            {
-                <div class="row"></div>
-            }
         }
     </div>
 </div>

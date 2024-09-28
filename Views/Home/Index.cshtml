@@ -8,12 +8,12 @@
 
     // Lista de URLs de imágenes
     var imageUrls = new List<string>
-    {
-        "https://i.imgur.com/545yCD7.jpeg",
-        "https://i.imgur.com/jnaS7vU.jpeg",
-        "https://i.imgur.com/5B96vii.jpeg",
-        "https://i.imgur.com/g7y85wp.jpeg"
-    };
+{
+"https://i.imgur.com/545yCD7.jpeg",
+"https://i.imgur.com/jnaS7vU.jpeg",
+"https://i.imgur.com/5B96vii.jpeg",
+"https://i.imgur.com/g7y85wp.jpeg"
+};
 }
 
 <!DOCTYPE html>
@@ -26,13 +26,36 @@
 </head>
 
 <style>
-  .img-habitaciones {
-    height: 200px !important;
-  }
+    .img-habitaciones {
+        height: 200px !important;
+    }
 
-  .card-body {
-    justify-content: start;
-  }
+    .card-body {
+        justify-content: start;
+    }
+
+    .buscador {
+        background-color: #ccccccef;
+    }
+
+    .habitacionesDisContainer {
+        background-color: #cccccc86 !important;
+        padding: 2rem 0;
+    }
+
+    .habitacionesDisponibles {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .containerCard {
+        margin-bottom: 1rem;
+    }
 </style>
 
 <body>
@@ -40,16 +63,16 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/Banner1.jpg" class="d-block w-100 imgCarousel" alt="...">
+                    <img src="https://i.imgur.com/545yCD7.jpeg" class="d-block w-100 imgCarousel" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Banner2.jpg" class="d-block w-100 imgCarousel" alt="...">
+                    <img src="https://i.imgur.com/jnaS7vU.jpeg" class="d-block w-100 imgCarousel" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Banner3.jpg" class="d-block w-100 imgCarousel" alt="...">
+                    <img src="https://i.imgur.com/g7y85wp.jpeg" class="d-block w-100 imgCarousel" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/Banner4.jpg" class="d-block w-100 imgCarousel" alt="...">
+                    <img src="https://i.imgur.com/jnaS7vU.jpeg" class="d-block w-100 imgCarousel" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev d-none" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -97,53 +120,89 @@
             <img src="img/img_3.jpg" alt="" class="imgDescripcion" width="600">
             <div class="">
                 <h2 class="text-justify">Descubra Rose Park</h2><br>
-                <p class="text-justify fs-6">Descubre una experiencia única en la naturaleza con nuestros exclusivos paquetes de
-                    glamping, que combinan la aventura al aire libre con el confort de alojamientos de lujo. Disfruta de cabañas y
-                    tiendas completamente equipadas, ubicadas en impresionantes paisajes, mientras te relajas con servicios como
-                    limpieza diaria, comidas gourmet, y actividades personalizadas, desde fogatas hasta senderismo. Nuestros
-                    paquetes están diseñados para brindarte una escapada perfecta, ya sea en pareja, con amigos o en familia.
+                <p class="text-justify fs-6">Descubre una experiencia única en la naturaleza con nuestros exclusivos
+                    paquetes de
+                    glamping, que combinan la aventura al aire libre con el confort de alojamientos de lujo. Disfruta de
+                    cabañas y
+                    tiendas completamente equipadas, ubicadas en impresionantes paisajes, mientras te relajas con
+                    servicios como
+                    limpieza diaria, comidas gourmet, y actividades personalizadas, desde fogatas hasta senderismo.
+                    Nuestros
+                    paquetes están diseñados para brindarte una escapada perfecta, ya sea en pareja, con amigos o en
+                    familia.
                     Reserva ahora y vive la magia del glamping sin renunciar a la comodidad.</p>
             </div>
         </div>
     </section>
 
-    <div id="paqueteCarousel" class="carousel paquetes container-fluid" class="carousel slide">
-        <h2 class="text-center mb-4">Nuestras habitaciones</h2>
-        <div class="carousel-inner mb-5">
+
+    @* Habitaciones disponibles *@
+
+    @* <div id="" class="paquetes container-fluid" class="carousel slide">
+    <h2 class="text-center mb-4">Nuestras habitaciones</h2>
+    <div class="">
+    @for (int i = 0; i < habitaciones.Count(); i += 3)
+    {
+    <div class="carousel-item @(i == 0 ? "active" : "")">
+    <div class="row">
+    @for (int j = i; j < i + 3 && j < habitaciones.Count(); j++)
+    {
+    var habitacion = habitaciones.ElementAt(j);
+    // Obtén la URL de la imagen correspondiente a esta habitación
+    var imgIndex = j % imageUrls.Count;
+    var imageUrl = imageUrls[imgIndex];
+
+    <div class="col-md-4">
+    <div class="card shadow-lg" style="width: 18rem; height: 100%;">
+    <img src="@imageUrl" class="card-img-top img-habitaciones" alt="Imagen de la Habitación">
+    <div class="card-body">
+    <h5 class="card-title">@habitacion.NorHabitacion</h5>
+    <p class="card-text">@habitacion.Descripcion</p>
+    </div>
+    </div>
+    </div>
+    }
+    </div>
+    </div>
+    }
+    </div>
+    </div> *@
+
+    <section class="habitacionesDisContainer">
+        <h2 class="text-center mb-5">Nuestras Habitaciones</h2>
+        <div>
             @for (int i = 0; i < habitaciones.Count(); i += 3)
             {
-                <div class="carousel-item @(i == 0 ? "active" : "")">
-                    <div class="row">
-                        @for (int j = i; j < i + 3 && j < habitaciones.Count(); j++)
-                        {
-                            var habitacion = habitaciones.ElementAt(j);
-                            // Obtén la URL de la imagen correspondiente a esta habitación
-                            var imgIndex = j % imageUrls.Count;
-                            var imageUrl = imageUrls[imgIndex];
+                <div class="habitacionesDisponibles">
+                    @for (int j = i; j < i + 3 && j < habitaciones.Count(); j++)
+                    {
+                        var habitacion = habitaciones.ElementAt(j);
+                        // Obtén la URL de la imagen correspondiente a esta habitación
+                        var imgIndex = j % imageUrls.Count;
+                        var imageUrl = imageUrls[imgIndex];
+                        <div class="containerCard">
+                            <div class="card" style="width: 380px; height: 100%;">
+                                <img src="@imageUrl" class="card-img-top img-habitaciones" alt="Imagen de la Habitación">
+                                <div class="card-body">
+                                    <h5 class="card-title">@habitacion.NorHabitacion</h5>
+                                    <p class="card-text">@habitacion.Descripcion</p>
+                                </div>
+                                <hr>
+                                <div class="text-center p-2">
+                                    <img src="@Url.Content("~/img/Iconos/star-con.png")" alt="*" width="20">
+                                    <img src="@Url.Content("~/img/Iconos/star-con.png")" alt="*" width="20">
+                                    <img src="@Url.Content("~/img/Iconos/star-con.png")" alt="*" width="20">
+                                    <img src="@Url.Content("~/img/Iconos/star-con.png")" alt="*" width="20">
+                                    <img src="@Url.Content("~/img/Iconos/star-con.png")" alt="*" width="20">
 
-                            <div class="col-md-4">
-                                <div class="card shadow-lg" style="width: 18rem; height: 100%;">
-                                    <img src="@imageUrl" class="card-img-top img-habitaciones" alt="Imagen de la Habitación">
-                                    <div class="card-body">
-                                        <h5 class="card-title">@habitacion.NorHabitacion</h5>
-                                        <p class="card-text">@habitacion.Descripcion</p>
-                                    </div>
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             }
         </div>
-        <a class="carousel-control-prev" href="#paqueteCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-black" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#paqueteCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-black" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
-    </div>
+    </section>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
 
